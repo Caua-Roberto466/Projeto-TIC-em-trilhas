@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AprendeJá - Plataforma de Aprendizado Adaptativo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/40" alt="Logo AprendeJá" class="logo-img">
+                <h1 class="logo-text">AprendeJá</h1>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="#" class="nav-link">Início</a></li>
+                    <li><a href="#how-it-works" class="nav-link">Como Funciona</a></li>
+                    <li><a href="#for-schools" class="nav-link">Para Escolas</a></li>
+                    <li><a href="#for-families" class="nav-link">Para Famílias</a></li>
+                </ul>
+            </nav>
+            <div class="header-buttons">
+                <button class="btn" id="toggleNightMode">Modo Noturno</button>
+                <button class="btn btn-outline">Entrar</button>
+                <button class="btn btn-primary">Começar Grátis</button>
+                <button class="menu-toggle" id="menuToggle">
+                    <span class="menu-icon"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-list">
+            <li><a href="#" class="mobile-nav-link">Início</a></li>
+            <li><a href="#how-it-works" class="mobile-nav-link">Como Funciona</a></li>
+            <li><a href="#for-schools" class="mobile-nav-link">Para Escolas</a></li>
+            <li><a href="#for-families" class="mobile-nav-link">Para Famílias</a></li>
+            <li><a href="#" class="mobile-nav-link">Entrar</a></li>
+            <li><a href="#" class="mobile-nav-link highlight">Começar Grátis</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="section-title">Aprenda do seu jeito, no seu ritmo</h2>
+                <p class="section-text">
+                    Descubra seu estilo de aprendizagem e acesse conteúdos personalizados que funcionam melhor para você.
+                    <span class="highlight">Acessível para todos</span>, em qualquer dispositivo.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" id="startTestButton">Fazer o Teste Grátis</button>
+                    <button class="btn btn-outline-mint">Para Escolas</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-container">
+                    <img src="https://via.placeholder.com/600x400" alt="Estudantes usando a plataforma">
+                    <div class="image-badge">
+                        <p>+10.000 estudantes já descobriram seu estilo!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Styles Section -->
+    <section class="learning-styles" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Descubra seu estilo de aprendizagem</h2>
+                <p class="section-text">
+                    Cada pessoa aprende de forma diferente. Nosso teste identifica se você é predominantemente visual,
+                    auditivo ou prático, para oferecer a melhor experiência de aprendizado.
+                </p>
+            </div>
+
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Visual</h3>
+                        <p class="card-subtitle">Aprende melhor vendo e observando</p>
+                    </div>
+                    <div class="card-content">
+                        <ul class="feature-list">
+                            <li class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                Prefere mapas mentais e diagramas
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                Gosta de ver demonstrações
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                Memoriza melhor com imagens
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-outline-orange">Ver exemplo</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 8a6 6 0 0 0-9.33-5" />
+                                <path d="m6 15 4-4 4 4" />
+                                <path d="M2 12h2" />
+                                <path d="M20 12h2" />
+                                <path d="M6 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+                                <path d="M14 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+                                <path d="M10 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+                                <path d="M18 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Auditivo</h3>
+                        <p class="card-subtitle">Aprende melhor ouvindo e falando</p>
+                    </div>
+                    <div class="card-content">
+                        <ul class="feature-list">
+                            <li class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                Prefere podcasts e audiobooks
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                Aprende em discussões em grupo
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                Memoriza repetindo em voz alta
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-outline-orange">Ver exemplo</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" />
+                                <circle cx="12" cy="12" r="4" />
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Prático</h3>
+                        <p class="card-subtitle">Aprende melhor fazendo e experimentando</p>
+                    </div>
+                    <div class="card-content">
+                        <ul class="feature-list">
+                            <li class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                Prefere atividades práticas
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                Aprende por tentativa e erro
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                Memoriza através da experiência
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-outline-orange">Ver exemplo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Test Demo Section -->
+    <section class="test-section" id="testSection">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Como funciona o teste</h2>
+                <p class="section-text">
+                    Nosso teste é rápido e simples. Responda algumas perguntas e descubra seu estilo de aprendizagem
+                    predominante.
+                </p>
+            </div>
+
+            <div class="test-container">
+                <div id="testContainer">
+                    <div class="test-question">
+                        <h3 class="question-title">Pergunta 1 de 5</h3>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 20%"></div>
+                        </div>
+                        <p class="question-text">Quando você precisa aprender algo novo, você prefere:</p>
+
+                        <div class="options-container">
+                            <div class="option">
+                                <input type="radio" id="q1-a" name="q1">
+                                <label for="q1-a">Ver um vídeo ou diagrama mostrando como fazer</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="q1-b" name="q1">
+                                <label for="q1-b">Ouvir alguém explicando passo a passo</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="q1-c" name="q1">
+                                <label for="q1-c">Tentar fazer por conta própria, experimentando</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="test-navigation">
+                        <button class="btn btn-outline" disabled>Anterior</button>
+                        <button class="btn btn-primary" id="nextButton">Próxima</button>
+                    </div>
+                </div>
+
+                <div id="testResult" class="hidden">
+                    <div class="result-container">
+                        <div class="result-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg>
+                        </div>
+                        <h3 class="result-title">Seu estilo predominante é: Visual</h3>
+                        <p class="result-text">
+                            Você aprende melhor quando pode ver informações e conceitos representados visualmente.
+                        </p>
+                        
+                        <div class="result-stats">
+                            <div class="stat">
+                                <div class="stat-header">
+                                    <span class="stat-label">Visual</span>
+                                    <span class="stat-value">65%</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <div class="stat-progress" style="width: 65%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="stat">
+                                <div class="stat-header">
+                                    <span class="stat-label">Auditivo</span>
+                                    <span class="stat-value">20%</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <div class="stat-progress" style="width: 20%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="stat">
+                                <div class="stat-header">
+                                    <span class="stat-label">Prático</span>
+                                    <span class="stat-value">15%</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <div class="stat-progress" style="width: 15%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary" id="seePathsButton">Ver trilhas recomendadas</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Paths Section -->
+    <section class="paths-section" id="pathsSection">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Trilhas de aprendizado personalizadas</h2>
+                <p class="section-text">
+                    Com base no seu estilo de aprendizagem, oferecemos conteúdos adaptados que maximizam seu potencial.
+                </p>
+            </div>
+
+            <div class="tabs">
+                <div class="tab-header">
+                    <button class="tab-button active" data-tab="visual">Visual</button>
+                    <button class="tab-button" data-tab="auditory">Auditivo</button>
+                    <button class="tab-button" data-tab="kinesthetic">Prático</button>
+                </div>
+
+                <div class="tab-content active" id="visual">
+                    <h3 class="tab-title">Trilha para aprendizes visuais</h3>
+                    <div class="path-cards">
+                        <div class="path-card">
+                            <div class="path-image">
+                                <img src="https://via.placeholder.com/400x200" alt="Matemática com mapas mentais">
+                                <div class="path-badge">Matemática</div>
+                            </div>
+                            <div class="path-details">
+                                <h4 class="path-title">Matemática com mapas mentais</h4>
+                                <p class="path-description">
+                                    Aprenda conceitos matemáticos através de mapas visuais e diagramas coloridos.
+                                </p>
+                                <div class="path-footer">
+                                    <span class="path-meta">12 aulas</span>
+                                    <button class="btn btn-outline-orange">Ver aulas</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="path-card">
+                            <div class="path-image">
+                                <img src="https://via.placeholder.com/400x200" alt="História em infográficos">
+                                <div class="path-badge">História</div>
+                            </div>
+                            <div class="path-details">
+                                <h4 class="path-title">História em infográficos</h4>
+                                <p class="path-description">
+                                    Linha do tempo visual e infográficos para entender eventos históricos.
+                                </p>
+                                <div class="path-footer">
+                                    <span class="path-meta">8 aulas</span>
+                                    <button class="btn btn-outline-orange">Ver aulas</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="auditory">
+                    <h3 class="tab-title">Trilha para aprendizes auditivos</h3>
+                    <div class="path-cards">
+                        <div class="path-card">
+                            <div class="path-image">
+                                <img src="https://via.placeholder.com/400x200" alt="Podcast de ciências">
+                                <div class="path-badge">Ciências</div>
+                            </div>
+                            <div class="path-details">
+                                <h4 class="path-title">Podcast de ciências</h4>
+                                <p class="path-description">
+                                    Aprenda conceitos científicos através de episódios de áudio narrados.
+                                </p>
+                                <div class="path-footer">
+                                    <span class="path-meta">10 episódios</span>
+                                    <button class="btn btn-outline-orange">Ouvir agora</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="path-card">
+                            <div class="path-image">
+                                <img src="https://via.placeholder.com/400x200" alt="Debates de português">
+                                <div class="path-badge">Português</div>
+                            </div>
+                            <div class="path-details">
+                                <h4 class="path-title">Debates de português</h4>
+                                <p class="path-description">
+                                    Discussões em áudio sobre literatura e gramática com exemplos práticos.
+                                </p>
+                                <div class="path-footer">
+                                    <span class="path-meta">6 debates</span>
+                                    <button class="btn btn-outline-orange">Ouvir agora</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="kinesthetic">
+                    <h3 class="tab-title">Trilha para aprendizes práticos</h3>
+                    <div class="path-cards">
+                        <div class="path-card">
+                            <div class="path-image">
+                                <img src="https://via.placeholder.com/400x200" alt="Experimentos de física">
+                                <div class="path-badge">Física</div>
+                            </div>
+                            <div class="path-details">
+                                <h4 class="path-title">Experimentos de física</h4>
+                                <p class="path-description">
+                                    Aprenda conceitos de física através de experimentos práticos com materiais simples.
+                                </p>
+                                <div class="path-footer">
+                                    <span class="path-meta">8 experimentos</span>
+                                    <button class="btn btn-outline-orange">Começar</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="path-card">
+                            <div class="path-image">
+                                <img src="https://via.placeholder.com/400x200" alt="Jogos de matemática">
+                                <div class="path-badge">Matemática</div>
+                            </div>
+                            <div class="path-details">
+                                <h4 class="path-title">Jogos de matemática</h4>
+                                <p class="path-description">
+                                    Resolva problemas matemáticos através de jogos interativos e desafios práticos.
+                                </p>
+                                <div class="path-footer">
+                                    <span class="path-meta">12 jogos</span>
+                                    <button class="btn btn-outline-orange">Jogar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Benefícios para todos</h2>
+                <p class="section-text">
+                    Nossa plataforma foi desenvolvida pensando em escolas públicas e famílias de baixa renda, oferecendo
+                    acesso a educação de qualidade para todos.
+                </p>
+            </div>
+
+            <div class="benefits-container">
+                <div class="benefit-card" id="for-schools">
+                    <h3 class="benefit-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2z"></path>
+                            <path d="M12 7l0 .01"></path>
+                        </svg>
+                        Para Escolas
+                    </h3>
+                    <ul class="benefit-list">
+                        <li class="benefit-item">
+                            <div class="benefit-icon">✓</div>
+                            <div class="benefit-content">
+                                <h4 class="benefit-subtitle">Acesso para todos os alunos</h4>
+                                <p class="benefit-description">Licenças gratuitas para escolas públicas com recursos limitados.</p>
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <div class="benefit-icon">✓</div>
+                            <div class="benefit-content">
+                                <h4 class="benefit-subtitle">Painel para professores</h4>
+                                <p class="benefit-description">Acompanhe o progresso dos alunos e identifique áreas que precisam de atenção.</p>
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <div class="benefit-icon">✓</div>
+                            <div class="benefit-content">
+                                <h4 class="benefit-subtitle">Conteúdo alinhado ao currículo</h4>
+                                <p class="benefit-description">Material didático que segue a Base Nacional Comum Curricular (BNCC).</p>
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <div class="benefit-icon">✓</div>
+                            <div class="benefit-content">
+                                <h4 class="benefit-subtitle">Funciona offline</h4>
+                                <p class="benefit-description">Baixe conteúdos para usar em áreas com conectividade limitada.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="btn btn-primary">Solicitar para minha escola</button>
+                </div>
+
+                <div class="benefit-card" id="for-families">
+                    <h3 class="benefit-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        Para Famílias
+                    </h3>
+                    <ul class="benefit-list">
+                        <li class="benefit-item">
+                            <div class="benefit-icon">✓</div>
+                            <div class="benefit-content">
+                                <h4 class="benefit-subtitle">Plano familiar acessível</h4>
+                                <p class="benefit-description">Preços reduzidos para famílias de baixa renda, com opção de bolsas de estudo.</p>
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <div class="benefit-icon">✓</div>
+                            <div class="benefit-content">
+                                <h4 class="benefit-subtitle">Acompanhamento parental</h4>
+                                <p class="benefit-description">Veja o progresso do seu filho e receba dicas para ajudá-lo em casa.</p>
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <div class="benefit-icon">✓</div>
+                            <div class="benefit-content">
+                                <h4 class="benefit-subtitle">Múltiplos dispositivos</h4>
+                                <p class="benefit-description">Acesse pelo celular, tablet ou computador, com a mesma conta.</p>
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <div class="benefit-icon">✓</div>
+                            <div class="benefit-content">
+                                <h4 class="benefit-subtitle">Suporte ao estudante</h4>
+                                <p class="benefit-description">Tire dúvidas com tutores online e acesse materiais complementares.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="btn btn-primary">Começar teste gratuito</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">O que dizem nossos usuários</h2>
+                <p class="section-text">
+                    Veja como nossa plataforma tem ajudado estudantes, professores e famílias.
+                </p>
+            </div>
+
+            <div class="testimonials-container">
+                <div class="testimonial">
+                    <div class="testimonial-badge">Aprendiz Visual</div>
+                    <p class="testimonial-text">"Antes eu tinha dificuldade em matemática, mas depois que descobri que sou uma aprendiz visual, comecei a usar os mapas mentais e agora entendo muito melhor!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h4 class="author-name">Maria Silva</h4>
+                            <p class="author-role">Estudante, 14 anos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-badge">Escola Pública</div>
+                    <p class="testimonial-text">"Consigo acompanhar o progresso de cada aluno e adaptar minhas aulas para atender às diferentes necessidades. Os resultados melhoraram muito!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">C</div>
+                        <div class="author-info">
+                            <h4 class="author-name">Prof. Carlos Oliveira</h4>
+                            <p class="author-role">Professor de Ciências</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-badge">Plano Familiar</div>
+                    <p class="testimonial-text">"Nossos filhos têm estilos de aprendizagem diferentes. Com a plataforma, cada um estuda do seu jeito e ambos estão se desenvolvendo muito bem."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">R</div>
+                        <div class="author-info">
+                            <h4 class="author-name">Família Rodrigues</h4>
+                            <p class="author-role">Pais de 2 filhos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="section-title">Pronto para descobrir seu estilo de aprendizagem?</h2>
+            <p class="section-text">
+                Faça o teste gratuito agora e comece sua jornada de aprendizado personalizado.
+                <span class="highlight">Sem compromisso</span> e sem necessidade de cartão de crédito.
+            </p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary">Fazer o teste grátis</button>
+                <button class="btn btn-outline">Conhecer planos</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="https://via.placeholder.com/40" alt="Logo AprendeJá" class="logo-img">
+                        <h3 class="logo-text">AprendeJá</h3>
+                    </div>
+                    <p class="footer-description">
+                        Plataforma de aprendizado adaptativo que identifica seu estilo e oferece conteúdo personalizado.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-title">Plataforma</h4>
+                        <ul class="footer-menu">
+                            <li><a href="#" class="footer-link">Como funciona</a></li>
+                            <li><a href="#" class="footer-link">Estilos de aprendizagem</a></li>
+                            <li><a href="#" class="footer-link">Trilhas de estudo</a></li>
+                            <li><a href="#" class="footer-link">Aplicativo móvel</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">Para Escolas</h4>
+                        <ul class="footer-menu">
+                            <li><a href="#" class="footer-link">Programa escolar</a></li>
+                            <li><a href="#" class="footer-link">Painel do professor</a></li>
+                            <li><a href="#" class="footer-link">Materiais didáticos</a></li>
+                            <li><a href="#" class="footer-link">Solicitar demonstração</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">Contato</h4>
+                        <ul class="contact-list">
+                            <li class="contact-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                                </svg>
+                                <span>(11) 4002-8922</span>
+                            </li>
+                            <li class="contact-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                                <span>contato@aprendeja.com.br</span>
+                            </li>
+                            <li class="contact-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                                <span>São Paulo, SP - Brasil</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">© 2024 AprendeJá. Todos os direitos reservados.</p>
+                <div class="legal-links">
+                    <a href="#" class="legal-link">Termos de Uso</a>
+                    <a href="#" class="legal-link">Política de Privacidade</a>
+                    <a href="#" class="legal-link">Ajuda</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
