@@ -103,6 +103,7 @@ img {
 .highlight {
   background-color: var(--light-yellow);
   padding: 0 5px;
+  color: #1e1e1e;
 }
 
 /* Buttons */

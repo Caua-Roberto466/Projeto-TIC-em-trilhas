@@ -1,10 +1,10 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     // Mobile menu toggle
     const menuToggle = document.getElementById('menuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
 
     if (menuToggle && mobileMenu) {
-        menuToggle.addEventListener('click', function() {
+        menuToggle.addEventListener('click', () => {
             mobileMenu.classList.toggle('active');
             
             // Toggle menu icon
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const options = document.querySelectorAll('.option');
     if (options) {
         options.forEach(option => {
-            option.addEventListener('click', function() {
+            option.addEventListener('click', () => {
                 // Remove active class from all options
                 options.forEach(opt => {
                     opt.classList.remove('active');
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (tabButtons && tabContents) {
         tabButtons.forEach(button => {
-            button.addEventListener('click', function() {
+            button.addEventListener('click', () => {
                 const tabId = this.getAttribute('data-tab');
                 
                 // Remove active class from all buttons and contents
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Start test button
     const startTestButton = document.getElementById('startTestButton');
     if (startTestButton) {
-        startTestButton.addEventListener('click', function() {
+        startTestButton.addEventListener('click', () => {
             const testSection = document.getElementById('testSection');
             if (testSection) {
                 testSection.scrollIntoView({ behavior: 'smooth' });
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // See paths button
     const seePathsButton = document.getElementById('seePathsButton');
     if (seePathsButton) {
-        seePathsButton.addEventListener('click', function() {
+        seePathsButton.addEventListener('click', () => {
             const pathsSection = document.getElementById('pathsSection');
             if (pathsSection) {
                 pathsSection.scrollIntoView({ behavior: 'smooth' });
