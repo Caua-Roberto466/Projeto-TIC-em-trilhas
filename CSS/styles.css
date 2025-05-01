@@ -51,6 +51,9 @@ body.night-mode {
 footer.night-mode {
   background-color: #1e1e1e;
 }
+.container.night-mode{
+  background-color: #1e1e1e;
+}
 
 .container {
     text-align: center;

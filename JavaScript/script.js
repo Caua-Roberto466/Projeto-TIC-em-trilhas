@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const options = document.querySelectorAll('.option');
     if (options) {
         options.forEach(option => {
-            option.addEventListener('click', () => {
+            option.addEventListener('click', function() {
                 // Remove active class from all options
                 options.forEach(opt => {
                     opt.classList.remove('active');
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (tabButtons && tabContents) {
         tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
+            button.addEventListener('click', function() {
                 const tabId = this.getAttribute('data-tab');
                 
                 // Remove active class from all buttons and contents
