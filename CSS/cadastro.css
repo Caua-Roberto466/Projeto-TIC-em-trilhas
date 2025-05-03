@@ -1,16 +1,24 @@
 :root {
-    --background-color: #ffffff;
-    --mint-green: #98D8C8;
-    --orange: #FF9F1C;
-    --medium-gray: #666666;
-    --light-yellow: #FFF9C4;
-    --border-color: #e5e5e5;
-    --orange-hover: #e08500;
-    --mint-green-light: rgba(152, 216, 200, 0.2);
-    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --border-radius: 8px;
-    --transition: all 0.3s ease;
-  }
+  /* Cores */
+  --background-color: #ffffff;
+  --dark-background: #121212;
+  --header-footer-background: #1e1e1e;
+  --card-background: #2a2a2a;
+  --highlight-color: #ffcc00;
+  --text-color: var(--medium-gray);
+  --mint-green: #98D8C8;
+  --orange: #FF9F1C;
+  --medium-gray: #666666;
+  --light-yellow: #FFF9C4;
+  --border-color: #e5e5e5;
+  --orange-hover: #e08500;
+  --mint-green-light: rgba(152, 216, 200, 0.2);
+  
+  /* Estilos de interface */
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --border-radius: 8px;
+  --transition: all 0.3s ease;
+}
   
   * {
     margin: 0;
@@ -301,3 +309,5 @@
     color: var(--medium-gray);
     font-weight: 600;
   }
+
+  

@@ -124,7 +124,7 @@ body.night-mode {
 /* Títulos e descrições de trilha */
 .path-title.night-mode,
 .path-description.night-mode {
-  color: #ffffff; 
+  color: #fff; 
 }
 
 /* Títulos de perguntas e resultados */
@@ -153,7 +153,7 @@ body.night-mode {
 .benefit-title.night-mode,
 .benefit-subtitle.night-mode,
 .benefit-description.night-mode {
-  color: #ffffff; 
+  color: #fff; 
 }
 
 /* Seção de depoimentos */
