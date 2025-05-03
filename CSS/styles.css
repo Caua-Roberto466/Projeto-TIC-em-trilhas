@@ -1,6 +1,12 @@
 /* Base Styles */
 :root {
+  /* Cores */
   --background-color: #ffffff;
+  --dark-background: #121212;
+  --header-footer-background: #1e1e1e;
+  --card-background: #2a2a2a;
+  --highlight-color: #ffcc00;
+  --text-color: var(--medium-gray);
   --mint-green: #98D8C8;
   --orange: #FF9F1C;
   --medium-gray: #666666;
@@ -8,51 +14,184 @@
   --border-color: #e5e5e5;
   --orange-hover: #e08500;
   --mint-green-light: rgba(152, 216, 200, 0.2);
+  
+  /* Estilos de interface */
   --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   --border-radius: 8px;
   --transition: all 0.3s ease;
 }
 
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Estilos do corpo */
 body {
   font-family: 'Inter', sans-serif;
   color: var(--medium-gray);
   background-color: var(--background-color);
   line-height: 1.6;
 }
+
+/* Modo noturno */
 body.night-mode {
-  background-color: #121212;
-  color: white;
+  background-color: var(--dark-background); 
+  color: #ffffff; 
 }
 
-.header.night-mode {
-  background-color: #1e1e1e;
+/* Estilos do botão de alternância */
+#toggleNightMode:hover {
+  color: var(--border-color);
+  background-color: #333;
 }
 
+/* Estilos do cabeçalho e rodapé */
+.header.night-mode,
+.footer.night-mode {
+  background-color: var(--header-footer-background);
+}
+
+/* Links de navegação */
 .nav-link.night-mode {
-  color: #ffffff;
+  color: #fff;
 }
 
-.btn.night-mode {
-  background-color: #3a3a3a;
-  color: #ffffff;
-}
-
+/* Estilos dos cartões */
 .card.night-mode {
-  background-color: #1e1e1e;
-  border: 1px solid #333;
+  background-color: var(--card-background);
+  border: 1px solid #444; 
 }
 
-footer.night-mode {
-  background-color: #1e1e1e;
+/* Seções de estilos de aprendizagem */
+.learning-styles.night-mode {
+  background-color: var(--header-footer-background); 
 }
-.container.night-mode{
-  background-color: #1e1e1e;
+
+/* Títulos dos cartões */
+.card-title.night-mode {
+  color: var(--light-yellow); 
+}
+
+/* Ícones de recursos */
+.feature-icon.night-mode {
+  color: var(--orange); 
+}
+
+/* Seção de testes */
+.test-section.night-mode {
+  background-color: var(--header-footer-background); 
+}
+
+/* Estilos de cabeçalho de seção */
+.section-header.night-mode {
+  color: #fff; 
+}
+
+/* Seção de trilhas */
+.paths-section.night-mode {
+  background-color: var(--header-footer-background); 
+}
+
+/* Conteúdo ativo das abas */
+.tab-content.active.night-mode {
+  background-color: #474747;
+}
+
+/* Títulos das abas */
+.tab-title.night-mode {
+  color: #fff;
+}
+
+/* Botões das abas */
+.tab-button.night-mode {
+  background-color: var(--card-background); 
+  color: #fff; 
+}
+
+.tab-button.active.night-mode {
+  background-color: var(--orange); 
+}
+
+/* Cartões de trilha */
+.path-card.night-mode {
+  background-color: var(--card-background);
+  border: 1px solid #444; 
+}
+
+/* Títulos e descrições de trilha */
+.path-title.night-mode,
+.path-description.night-mode {
+  color: #ffffff; 
+}
+
+/* Títulos de perguntas e resultados */
+.question-title.night-mode,
+.result-title.night-mode {
+  color: #121212; 
+}
+
+/* Opções */
+.option label.night-mode {
+  color: #fff; 
+}
+
+/* Seção de benefícios */
+.benefits-section.night-mode {
+  background-color: var(--header-footer-background); 
+}
+
+/* Cartões de benefícios */
+.benefit-card.night-mode {
+  background-color: var(--card-background); 
+  border: 1px solid #444; 
+}
+
+/* Títulos e descrições de benefícios */
+.benefit-title.night-mode,
+.benefit-subtitle.night-mode,
+.benefit-description.night-mode {
+  color: #ffffff; 
+}
+
+/* Seção de depoimentos */
+.testimonials-section.night-mode {
+  background-color: var(--header-footer-background); 
+}
+
+/* Depoimentos */
+.testimonial.night-mode {
+  background-color: var(--card-background); 
+  border: 1px solid #444; 
+}
+
+.testimonial-badge.night-mode {
+  background-color: var(--highlight-color); 
+  color: #121212; 
+}
+
+/* Texto de depoimentos */
+.testimonial-text.night-mode,
+.author-name.night-mode,
+.author-role.night-mode {
+  color: #ffffff; 
+}
+
+/* Seção CTA */
+.cta-section.night-mode {
+  background-color: #111111; 
+}
+
+/* Títulos e textos da seção CTA */
+.section-title.night-mode,
+.section-text.night-mode {
+  color: #fff; 
+}
+
+.highlight.night-mode {
+  color: #fff; 
 }
 
 .container {
@@ -60,10 +199,6 @@ footer.night-mode {
     padding: 50px;
 }
 
-.dark-mode {
-    background-color: #121212;
-    color: white;
-}
 .container {
   width: 100%;
   max-width: 1200px;
@@ -120,6 +255,7 @@ img {
   border: none;
   font-size: 1rem;
 }
+
 
 .btn-primary {
   background-color: var(--orange);
@@ -293,8 +429,8 @@ img {
   font-weight: 500;
 }
 
-.mobile-nav-link.highlight {
-  color: var(--orange);
+.mobile-nav-link.highligh{
+  color: var(--medium-gray);
   font-weight: 600;
 }
 

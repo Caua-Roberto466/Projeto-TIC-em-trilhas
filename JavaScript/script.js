@@ -11,16 +11,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const menuIcon = menuToggle.querySelector('.menu-icon');
             if (mobileMenu.classList.contains('active')) {
                 menuIcon.style.background = 'transparent';
-                menuIcon.style.transform = 'rotate(180deg)';
-                menuIcon.style.transition = 'all 0.3s ease';
+                menuIcon.style.transform = 'rotate(360deg)';
+                menuIcon.style.transition = 'all 0.6s ease';
                 
                 if (menuIcon.style.background === 'transparent') {
                     menuIcon.style.background = 'transparent';
                 }
                 
-                menuIcon.style.transform = 'rotate(180deg)';
+                menuIcon.style.transform = 'rotate(360deg)';
                 
-                menuIcon.style.transition = 'all 0.3s ease';
+                menuIcon.style.transition = 'all 0.6s ease';
                 
                 menuIcon.style.background = 'transparent';
                 
@@ -134,20 +134,68 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// Seleciona elementos do DOM
 const toggleNightModeBtn = document.getElementById('toggleNightMode');
 const body = document.body;
 const header = document.querySelector('.header');
+const learningStylesSection = document.querySelector('.learning-styles');
+const testSection = document.querySelector('.test-section');
+const pathsSection = document.querySelector('.paths-section');
+const benefitsSection = document.querySelector('.benefits-section');
+const testimonialsSection = document.querySelector('.testimonials-section');
+const ctaSection = document.querySelector('.cta-section');
 const navLinks = document.querySelectorAll('.nav-link');
 const buttons = document.querySelectorAll('.btn');
 const cards = document.querySelectorAll('.card');
 const footer = document.querySelector('.footer');
+const sectionHeaders = document.querySelectorAll('.section-header');
+const optionsLabels = document.querySelectorAll('.option label');
+const tabButtons = document.querySelectorAll('.tab-button');
+const pathCards = document.querySelectorAll('.path-card');
+const tabContent = document.querySelectorAll('.tab-content');
+const tabTitle = document.querySelectorAll('.tab-title');
+const benefitCards = document.querySelectorAll('.benefit-card');
+const testimonials = document.querySelectorAll('.testimonial');
 
-toggleNightModeBtn.addEventListener('click', () => {
+// Função para alternar o modo noturno
+function toggleDarkMode() {
     body.classList.toggle('night-mode');
     header.classList.toggle('night-mode');
     footer.classList.toggle('night-mode');
+    learningStylesSection.classList.toggle('night-mode');
+    testSection.classList.toggle('night-mode');
+    pathsSection.classList.toggle('night-mode');
+    benefitsSection.classList.toggle('night-mode');
+    testimonialsSection.classList.toggle('night-mode');
+    ctaSection.classList.toggle('night-mode');
 
+    sectionHeaders.forEach(header => header.classList.toggle('night-mode'));
+    optionsLabels.forEach(label => label.classList.toggle('night-mode'));
     navLinks.forEach(link => link.classList.toggle('night-mode'));
     buttons.forEach(button => button.classList.toggle('night-mode'));
-    cards.forEach(card => card.classList.toggle('night-mode'));
-});
+    cards.forEach(card => {
+        card.classList.toggle('night-mode');
+        const cardTitle = card.querySelector('.card-title');
+        if (cardTitle) {
+            cardTitle.classList.toggle('night-mode');
+        }
+        const btn = card.querySelector('.btn');
+        if (btn) {
+            btn.classList.toggle('night-mode');
+        }
+    });
+    tabButtons.forEach(button => button.classList.toggle('night-mode'));
+    pathCards.forEach(card => card.classList.toggle('night-mode'));
+    tabContent.forEach(content => content.classList.toggle('night-mode'));
+    tabTitle.forEach(title => title.classList.toggle('night-mode'));
+    benefitCards.forEach(card => card.classList.toggle('night-mode'));
+    testimonials.forEach(testimonial => testimonial.classList.toggle('night-mode'));
+    // Seção CTA
+    const sectionTitle = document.querySelector('.section-title');
+    const sectionText = document.querySelector('.section-text');
+    sectionTitle.classList.toggle('night-mode');
+    sectionText.classList.toggle('night-mode');
+}
+
+// Adiciona o evento de clique ao botão
+toggleNightModeBtn.addEventListener('click', toggleDarkMode);

@@ -4,18 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="">
 </head>
 <body>
-    <header>
-        <h1 align="center">LearnQuest</h1>
-        <div class="info">
-          <div class="startup"  align="center">
-            <h3>Slogan</h3>
-            <p >Cadastre-se para uma melhor experiência</p>
+  
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+          <div class="logo">
+              <img src="https://via.placeholder.com/40" alt="Logo AprendeJá" class="logo-img">
+              <h1 class="logo-text">AprendeJá</h1>
           </div>
-          
-        </div>
-      </header>
+          <nav class="main-nav">
+              <ul class="nav-list">
+                  <li><a href="index.html" class="nav-link">Início</a></li>
+                  <li><a href="#how-it-works" class="nav-link">Como Funciona</a></li>
+                  <li><a href="#for-schools" class="nav-link">Para Escolas</a></li>
+                  <li><a href="#for-families" class="nav-link">Para Famílias</a></li>
+              </ul>
+          </nav>
+          <div class="header-buttons">
+              <button class="btn" id="toggleNightMode">Modo Noturno</button>
+              <button class="btn btn-outline">Entrar</button>
+              <button class="btn btn-primary">Começar Grátis</button>
+              <button class="menu-toggle" id="menuToggle">
+                  <span class="menu-icon"></span>
+              </button>
+          </div>
+      </div>
+  </header>
+
+   <!-- Mobile Menu -->
+   <div class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-nav-list">
+        <li><a href="#" class="mobile-nav-link">Início</a></li>
+        <li><a href="#how-it-works" class="mobile-nav-link">Como Funciona</a></li>
+        <li><a href="#for-schools" class="mobile-nav-link">Para Escolas</a></li>
+        <li><a href="#for-families" class="mobile-nav-link">Para Famílias</a></li>
+        <li><a href="#" class="mobile-nav-link">Entrar</a></li>
+        <li><a href="#" class="mobile-nav-link highlight">Começar Grátis</a></li>
+    </ul>
+</div>
+
+  <script src="../JavaScript/script.js"></script>
+
 </body>
 </html>
