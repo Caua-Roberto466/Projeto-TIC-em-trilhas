@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - LearnQuest</title>
+    <link rel="stylesheet" href="../CSS/login.css">
+</head>
+<body>
+  
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+          <div class="logo">
+              <img src="https://via.placeholder.com/40" alt="Logo AprendeJá" class="logo-img">
+              <h1 class="logo-text">AprendeJá</h1>
+          </div>
+          <nav class="main-nav">
+              <ul class="nav-list">
+                  <li><a href="index.html" class="nav-link">Início</a></li>
+                  <li><a href="#how-it-works" class="nav-link">Como Funciona</a></li>
+                  <li><a href="#for-schools" class="nav-link">Para Escolas</a></li>
+                  <li><a href="#for-families" class="nav-link">Para Famílias</a></li>
+              </ul>
+          </nav>
+          <div class="header-buttons">
+              <button class="btn" id="toggleNightMode">Modo Noturno</button>
+              <button class="btn btn-outline">Entrar</button>
+              <button class="btn btn-primary">Começar Grátis</button>
+              <button class="menu-toggle" id="menuToggle">
+                  <span class="menu-icon"></span>
+              </button>
+          </div>
+      </div>
+  </header>
+
+   <!-- Mobile Menu -->
+   <div class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-nav-list">
+        <li><a href="../HTML/index.html" class="mobile-nav-link">Início</a></li>
+        <li><a href="#how-it-works" class="mobile-nav-link">Como Funciona</a></li>
+        <li><a href="#for-schools" class="mobile-nav-link">Para Escolas</a></li>
+        <li><a href="#for-families" class="mobile-nav-link">Para Famílias</a></li>
+        <li><a href="#" class="mobile-nav-link">Entrar</a></li>
+        <li><a href="#" class="mobile-nav-link highlight">Começar Grátis</a></li>
+    </ul>
+    </div>
+    <br><br><br><br>
+    
+    <div class="container">
+        
+        <form id="loginForm" autocomplete="off">
+            <h3>Login</h3>
+            <input type="email" id="email" placeholder="E-mail" required>
+            <input type="password" id="senha" placeholder="Senha" required>
+            <button class="envi" type="submit">Entrar</button>
+            
+            <div class="msg" id="msg"></div>
+        </form>
+        <a href="cadastro.html">Ainda não tem conta? Cadastre-se</a>
+    </div>
+      
+  <script>
+    const form = document.getElementById('loginForm');
+    const msg = document.getElementById('msg');
+    
+    form.onsubmit = function(event) {
+        event.preventDefault();
+    
+        const email = document.getElementById('email').value.trim().toLowerCase();
+        const senha = document.getElementById('senha').value;
+    
+        let usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
+        const usuario = usuarios.find(u => u.email === email && u.senha === senha);
+    
+        if (usuario) {
+            // Salva usuário logado (pode ser só o email)
+            localStorage.setItem('usuarioLogado', JSON.stringify(usuario));
+            window.location.href = 'home.html';
+        } else {
+            msg.textContent = 'E-mail ou senha inválidos!';
+        }
+    }
+  </script>
+
+</body>
+</html>
