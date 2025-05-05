@@ -1,0 +1,234 @@
+/* Base Styles */
+:root {
+    /* Cores */
+    --background-color: #ffffff;
+    --dark-background: #121212;
+    --header-footer-background: #1e1e1e;
+    --card-background: #2a2a2a;
+    --highlight-color: #ffcc00;
+    --text-color: var(--medium-gray);
+    --mint-green: #98D8C8;
+    --orange: #FF9F1C;
+    --medium-gray: #666666;
+    --light-yellow: #FFF9C4;
+    --border-color: #e5e5e5;
+    --orange-hover: #e08500;
+    --mint-green-light: rgba(152, 216, 200, 0.2);
+    
+    /* Estilos de interface */
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+  }
+  
+  /* Reset básico */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Estilos do corpo */
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--medium-gray);
+    background-color: var(--background-color);
+    line-height: 1.6;
+  }
+  
+  /* Modo noturno */
+  body.night-mode {
+    background-color: var(--dark-background); 
+    color: #ffffff; 
+  }
+  
+  /* Estilos do botão de alternância */
+  #toggleNightMode:hover {
+    color: var(--border-color);
+    background-color: #333;
+  }
+  
+  /* Estilos do cabeçalho e rodapé */
+  .header.night-mode,
+  .footer.night-mode {
+    background-color: var(--header-footer-background);
+  }
+
+  /* Footer */
+.footer {
+    padding: 4rem 0 2rem;
+    background-color: #f1f1f1;
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .footer-about {
+    margin-bottom: 2rem;
+  }
+  
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-description {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .social-link {
+    color: var(--medium-gray);
+    transition: var(--transition);
+  }
+  
+  .social-link:hover {
+    color: var(--orange);
+  }
+  
+  .footer-links {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .footer-title {
+    font-weight: 700;
+    color: var(--medium-gray);
+    margin-bottom: 1rem;
+  }
+  
+  .footer-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .footer-link {
+    color: var(--medium-gray);
+    transition: var(--transition);
+  }
+  
+  .footer-link:hover {
+    color: var(--orange);
+  }
+  
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .contact-item svg {
+    color: var(--mint-green);
+  }
+  
+  .footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid #e5e5e5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .copyright {
+    font-size: 0.9rem;
+  }
+  
+  .legal-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .legal-link {
+    font-size: 0.8rem;
+    color: var(--medium-gray);
+    transition: var(--transition);
+  }
+  
+  .legal-link:hover {
+    color: var(--orange);
+  }
+  
+  /* Media Queries */
+  @media (min-width: 768px) {
+    .hero .container {
+        flex-direction: row;
+        align-items: center;
+    }
+  
+    .hero-buttons {
+        flex-direction: row;
+    }
+  
+    .cards-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+  
+    .path-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .benefits-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .testimonials-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+  
+    .cta-buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
+  
+    .footer-content {
+        grid-template-columns: 1fr 2fr;
+    }
+  
+    .footer-links {
+        grid-template-columns: repeat(3, 1fr);
+    }
+  
+    .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+  
+    .main-nav {
+        display: block;
+    }
+  
+    .menu-toggle {
+        display: none;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .section-title {
+        font-size: 2.5rem;
+    }
+  
+    .hero-content {
+        padding-right: 2rem;
+    }
+  }
