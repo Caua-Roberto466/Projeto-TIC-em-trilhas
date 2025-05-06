@@ -642,7 +642,9 @@ input {
       border-radius: 0;
       min-height: 100vh;
       justify-content: center;
+      
     }
+  
 
     .logo {
       font-size: 1.6rem;
