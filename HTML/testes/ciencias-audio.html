@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Ciências - Educacional para Auditivos</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        header p {
+            font-size: 1.2em;
+        }
+
+        /* Seções de conteúdo */
+        .content {
+            margin: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h2 {
+            color: #4CAF50;
+            font-size: 1.8em;
+        }
+
+        .content p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Página de Ciências</h1>
+        <p>Explorando o mundo da ciência com som!</p>
+    </header>
+
+    <section class="content">
+        <h2>O que é a fotossíntese?</h2>
+        <p>Assista e ouça a explicação sobre a fotossíntese e como as plantas produzem seu próprio alimento.</p>
+        <button onclick="playAudio('fotossintese')">Ouvir Explicação sobre Fotossíntese</button>
+        <audio id="fotossintese" src="audio/fotossintese.mp3"></audio>
+    </section>
+
+    <section class="content">
+        <h2>Como funcionam os planetas?</h2>
+        <p>Aprenda sobre os planetas do sistema solar e como eles se movem ao redor do Sol.</p>
+        <button onclick="playAudio('planetas')">Ouvir sobre os Planetas</button>
+        <audio id="planetas" src="audio/planetas.mp3"></audio>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Ciência para Todos</p>
+    </footer>
+
+    <script>
+        // Função para tocar o áudio quando o botão for clicado
+        function playAudio(audioId) {
+            var audio = document.getElementById(audioId);
+            audio.play();
+        }
+    </script>
+</body>
+
+</html>

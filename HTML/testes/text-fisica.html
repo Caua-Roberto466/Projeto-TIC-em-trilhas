@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jogo de Física</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      background: #f4f7fb;
+      color: #222;
+    }
+
+    header {
+      background: #00695c;
+      color: #fff;
+      padding: 1.5rem 1rem 1rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    header p {
+      margin: 0.5rem 0 0;
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+
+    main {
+      max-width: 500px;
+      margin: 2rem auto;
+      padding: 1.5rem 1rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .question {
+      font-size: 1.2rem;
+      margin: 1.2rem 0 1rem 0;
+      color: #00695c;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .options label {
+      display: block;
+      margin-bottom: 0.7rem;
+      cursor: pointer;
+      font-size: 1.1rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .options input[type="radio"] {
+      margin-right: 0.5rem;
+    }
+
+    .options label:hover {
+      background: #e0f2f1;
+    }
+
+    input[type="text"] {
+      padding: 0.5rem;
+      font-size: 1.2rem;
+      border: 1px solid #80cbc4;
+      border-radius: 4px;
+      width: 90px;
+      text-align: center;
+      margin-right: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      padding: 0.5rem 1.6rem;
+      border: none;
+      border-radius: 4px;
+      background: #00695c;
+      color: #fff;
+      font-size: 1.1rem;
+      cursor: pointer;
+      margin-bottom: 1.2rem;
+      transition: background 0.2s;
+      margin-top: 0.8rem;
+    }
+
+    button:hover {
+      background: #003d33;
+    }
+
+    .feedback {
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      margin-top: 0.4rem;
+      min-height: 1.3em;
+      text-align: center;
+    }
+
+    .feedback.correct {
+      color: #128a3e;
+    }
+
+    .feedback.incorrect {
+      color: #b71c1c;
+    }
+
+    .score {
+      font-size: 1.05rem;
+      margin-top: 0.5rem;
+      color: #00695c;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .final-score {
+      font-size: 1.25rem;
+      color: #00695c;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 1.2rem;
+    }
+
+    @media (max-width: 600px) {
+      main {
+        margin: 1rem 0;
+        padding: 1rem 0.5rem;
+      }
+
+      .question {
+        font-size: 1.05rem;
+      }
+
+      input[type="text"] {
+        font-size: 1rem;
+        width: 65px;
+      }
+
+      .options label {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Jogo de Física</h1>
+    <p>Teste seus conhecimentos em física!</p>
+  </header>
+  <main>
+    <div id="gameArea">
+      <div class="question" id="question">Carregando...</div>
+      <form id="answerForm" onsubmit="event.preventDefault(); checkAnswer();"></form>
+      <div class="feedback" id="feedback"></div>
+      <div class="score" id="score"></div>
+      <button id="nextBtn" style="display:none;" onclick="nextQuestion()">Próxima questão</button>
+    </div>
+    <div id="finalScreen" style="display:none;">
+      <div class="final-score" id="finalScore"></div>
+      <button onclick="restartGame()">Jogar novamente</button>
+    </div>
+  </main>
+
+  <script>
+    // Questões de física (8)
+    const physicsQuestions = [
+      {
+        type: "multiple",
+        question: "Qual é a unidade de medida da força no Sistema Internacional (SI)?",
+        options: ["Watt", "Newton", "Joule", "Pascal"],
+        answer: "Newton"
+      },
+      {
+        type: "multiple",
+        question: "Qual dessas grandezas é escalar?",
+        options: ["Velocidade", "Aceleração", "Temperatura", "Força"],
+        answer: "Temperatura"
+      },
+      {
+        type: "input",
+        question: "Um carro andou 150 km em 3 horas. Qual a velocidade média em km/h?",
+        answer: "50"
+      },
+      {
+        type: "multiple",
+        question: "O que acontece com um objeto em queda livre, desconsiderando o ar?",
+        options: [
+          "Ele cai com velocidade constante.",
+          "Sua velocidade aumenta continuamente.",
+          "Ele para no meio do caminho.",
+          "Sua massa diminui."
+        ],
+        answer: "Sua velocidade aumenta continuamente."
+      },
+      {
+        type: "input",
+        question: "Qual é a aceleração da gravidade na Terra (em m/s²)?",
+        answer: "9.8"
+      },
+      {
+        type: "multiple",
+        question: "Qual destas opções é fonte de energia renovável?",
+        options: ["Carvão mineral", "Petróleo", "Energia solar", "Gás natural"],
+        answer: "Energia solar"
+      },
+      {
+        type: "input",
+        question: "Qual é a fórmula da velocidade média (v) em função da distância (d) e tempo (t)? (Apenas letras, sem espaços)",
+        answer: "v=d/t"
+      },
+      {
+        type: "multiple",
+        question: "Qual dessas alternativas corresponde a uma transformação física?",
+        options: [
+          "Queima de papel",
+          "Fusão do gelo",
+          "Digestão de alimentos",
+          "Oxidação do ferro"
+        ],
+        answer: "Fusão do gelo"
+      }
+    ];
+
+    // Variáveis de controle
+    let questions = [];
+    let current = 0;
+    let score = 0;
+    let correct = 0;
+    let total = 0;
+
+    // Inicialização do jogo
+    function initGame() {
+      questions = physicsQuestions;
+      current = 0;
+      score = 0;
+      correct = 0;
+      total = 0;
+      document.getElementById('finalScreen').style.display = 'none';
+      document.getElementById('gameArea').style.display = 'block';
+      showQuestion();
+      updateScore();
+    }
+
+    javascript
+
+    Copiar
+    function showQuestion() {
+      document.getElementById("feedback").textContent = "";
+      document.getElementById("feedback").className = "feedback";
+      document.getElementById("nextBtn").style.display = "none";
+      const q = questions[current];
+      const qNum = current + 1;
+      let title = `Questão ${qNum} de ${questions.length}`;
+      document.getElementById("question").innerHTML = `<span style="font-size:0.9em;color:#444;">${title}</span><br>${q.question}`;
+      const form = document.getElementById("answerForm");
+      form.innerHTML = ""; // limpa
+
+      if (q.type === "input") {
+        form.innerHTML = `<input type="text" id="userAnswer" required autocomplete="off" placeholder="Sua resposta"> 
+    <button type="submit">Responder</button>`;
+        setTimeout(() => { document.getElementById("userAnswer").focus() }, 150);
+      } else if (q.type === "multiple") {
+        let opsHtml = `<div class="options">`;
+        q.options.forEach((opt, i) => {
+          opsHtml += `<label><input type="radio" name="option" value="${opt}">${opt}</label>`;
+        });
+        opsHtml += `</div><button type="submit">Responder</button>`;
+        form.innerHTML = opsHtml;
+      }
+    }
+
+    function checkAnswer() {
+      const q = questions[current];
+      let userVal = "";
+      let isCorrect = false;
+      if (q.type === "input") {
+        userVal = document.getElementById("userAnswer").value.trim().replace(",", ".");
+        if (userVal === "") {
+          showFeedback("Por favor, digite sua resposta!", false);
+          return;
+        }
+        // Permite pequena variação para números decimais de física
+        if (q.answer.includes(".") && !isNaN(q.answer)) {
+          isCorrect = Math.abs(Number(userVal) - Number(q.answer)) < 0.2;
+        } else {
+          isCorrect = userVal.toLowerCase() === q.answer.toLowerCase();
+        }
+      } else if (q.type === "multiple") {
+        const opts = document.getElementsByName("option");
+        for (let opt of opts) {
+          if (opt.checked) userVal = opt.value;
+        }
+        if (!userVal) {
+          showFeedback("Por favor, selecione uma opção!", false);
+          return;
+        }
+        isCorrect = userVal.trim() === q.answer.trim();
+      }
+
+      total++;
+      if (isCorrect) {
+        showFeedback("Correto! 🎉", true);
+        score += 10;
+        correct++;
+      } else {
+        showFeedback(`Errado! O correto era: <b>${q.answer}</b>.`, false);
+      }
+      updateScore();
+      document.getElementById("nextBtn").style.display = "inline-block";
+      const inputs = document.querySelectorAll("#answerForm input, #answerForm button");
+      inputs.forEach(inp => inp.disabled = true);
+    }
+
+    function showFeedback(msg, isCorrect) {
+      const fb = document.getElementById("feedback");
+      fb.innerHTML = msg;
+      fb.className = isCorrect ? "feedback correct" : "feedback incorrect";
+    }
+
+    function nextQuestion() {
+      current++;
+      if (current < questions.length) {
+        showQuestion();
+        const inputs = document.querySelectorAll("#answerForm input, #answerForm button");
+        inputs.forEach(inp => inp.disabled = false);
+      } else {
+        showFinalScreen();
+      }
+    }
+
+    function updateScore() {
+      document.getElementById("score").textContent =
+        `Pontos: ${score} | Acertos: ${correct} de ${total}`;
+    }
+
+    function showFinalScreen() {
+      document.getElementById("gameArea").style.display = "none";
+      document.getElementById("finalScreen").style.display = "block";
+      document.getElementById("finalScore").innerHTML =
+        `Parabéns!<br>Você fez <b>${score}</b> pontos, acertando <b>${correct}</b> de <b>${total}</b> questões.`;
+    }
+
+    function restartGame() {
+      initGame();
+    }
+
+    // Começar jogo
+    window.onload = () => {
+      initGame();
+    };
+  </script>
+</body>
+
+</html>

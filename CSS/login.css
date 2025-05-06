@@ -82,6 +82,11 @@
     background-color: #e08500;
     color: #fff;
   }
+
+  .peg.night-mode{
+    background-color: #1e1e1e;
+    color: #fff;
+  }
   
   .container {
       text-align: center;
@@ -216,8 +221,8 @@
   }
   
   .logo-img {
-    width: 40px;
-    height: 40px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
   }
   

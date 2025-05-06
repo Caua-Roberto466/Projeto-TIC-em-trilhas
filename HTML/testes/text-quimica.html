@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laboratório Virtual de Química</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      background: #f4f7fb;
+      color: #222;
+    }
+
+    header {
+      background: #98D8C8;
+      color: #fff;
+      padding: 1.5rem 1rem 1rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    header p {
+      margin: 0.5rem 0 0;
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      color: #98D8C8;
+      margin-top: 0;
+    }
+
+    .experiment {
+      margin-bottom: 1.5rem;
+      border: 1px solid #e4e9f2;
+      border-radius: 6px;
+      padding: 1rem;
+      background: #fafdff;
+    }
+
+    .question {
+      margin: 1rem 0 0.5rem;
+      font-weight: 500;
+    }
+
+    .options label {
+      display: block;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+    }
+
+    button {
+      margin-top: 0.8rem;
+      padding: 0.5rem 1.2rem;
+      border: none;
+      border-radius: 4px;
+      background: #98D8C8;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background: #689388;
+    }
+
+    .feedback {
+      margin-top: 0.8rem;
+      font-weight: 600;
+    }
+
+    .feedback.correct {
+      color: #128a3e;
+    }
+
+    .feedback.incorrect {
+      color: #b71c1c;
+    }
+
+    @media (max-width: 600px) {
+      main {
+        margin: 1rem 0;
+        padding: 0.8rem;
+      }
+
+      header {
+        padding: 1rem 0.5rem 0.7rem 0.5rem;
+      }
+
+      h1 {
+        font-size: 1.3rem;
+      }
+
+      h2 {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Laboratório Virtual de Química</h1>
+    <p>Experimente, aprenda e teste seus conhecimentos com exercícios práticos!</p>
+  </header>
+  <main>
+    <section>
+      <h2>Experimento 1: Indicador de pH com repolho roxo</h2>
+      <div class="experiment" id="exp1">
+        <p>
+          O extrato de repolho roxo pode ser usado como indicador de pH, mudando de cor em soluções ácidas ou básicas.
+          Suponha que você colocou o extrato em três soluções diferentes:
+        </p>
+        <ul>
+          <li>Em uma delas, o extrato ficou <b>vermelho-rosado</b>.</li>
+          <li>Na segunda, ficou <b>verde</b>.</li>
+          <li>Na terceira, ficou <b>roxo</b>.</li>
+        </ul>
+        <div class="question">
+          Qual das soluções é neutra?
+        </div>
+        <div class="options">
+          <label>
+            <input type="radio" name="exp1" value="a"> A que ficou vermelho-rosado.
+          </label>
+          <label>
+            <input type="radio" name="exp1" value="b"> A que ficou verde.
+          </label>
+          <label>
+            <input type="radio" name="exp1" value="c"> A que ficou roxa.
+          </label>
+        </div>
+        <button onclick="checkAnswer('exp1', 'c')">Verificar resposta</button>
+        <div class="feedback" id="feedback-exp1"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Experimento 2: Reação de neutralização</h2>
+      <div class="experiment" id="exp2">
+        <p>
+          Misturando ácido clorídrico (HCl) e hidróxido de sódio (NaOH) ocorre uma reação de neutralização. O produto
+          dessa reação pode ser utilizado no cotidiano.
+        </p>
+        <div class="question">
+          Qual é o sal formado nessa reação?
+        </div>
+        <div class="options">
+          <label>
+            <input type="radio" name="exp2" value="a"> Cloreto de sódio (NaCl)
+          </label>
+          <label>
+            <input type="radio" name="exp2" value="b"> Sulfato de sódio (Na2SO4)
+          </label>
+          <label>
+            <input type="radio" name="exp2" value="c"> Nitrato de sódio (NaNO3)
+          </label>
+        </div>
+        <button onclick="checkAnswer('exp2', 'a')">Verificar resposta</button>
+        <div class="feedback" id="feedback-exp2"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Experimento 3: Efervescência com bicarbonato</h2>
+      <div class="experiment" id="exp3">
+        <p>
+          Ao adicionar vinagre (ácido acético) ao bicarbonato de sódio, ocorre liberação de um gás que faz a mistura
+          borbulhar.
+        </p>
+        <div class="question">
+          Qual é o gás liberado nessa reação?
+        </div>
+        <div class="options">
+          <label>
+            <input type="radio" name="exp3" value="a"> Oxigênio (O₂)
+          </label>
+          <label>
+            <input type="radio" name="exp3" value="b"> Dióxido de carbono (CO₂)
+          </label>
+          <label>
+            <input type="radio" name="exp3" value="c"> Gás hidrogênio (H₂)
+          </label>
+        </div>
+        <button onclick="checkAnswer('exp3', 'b')">Verificar resposta</button>
+        <div class="feedback" id="feedback-exp3"></div>
+      </div>
+    </section>
+  </main>
+  <script>
+    function checkAnswer(expId, correct) {
+      const options = document.getElementsByName(expId);
+      let selected = null;
+      for (let opt of options) {
+        if (opt.checked) {
+          selected = opt.value;
+          break;
+        }
+      }
+      const feedback = document.getElementById('feedback-' + expId);
+      if (selected === null) {
+        feedback.textContent = 'Por favor, selecione uma opção.';
+        feedback.className = "feedback";
+        return;
+      }
+      if (selected === correct) {
+        feedback.textContent = 'Parabéns! Resposta correta.';
+        feedback.className = "feedback correct";
+      } else {
+        feedback.textContent = 'Resposta incorreta. Você sabe o porquê?';
+        feedback.className = "feedback incorrect";
+      }
+    }
+  </script>
+</body>
+
+</html>

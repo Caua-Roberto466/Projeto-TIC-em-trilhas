@@ -142,9 +142,12 @@ const body = document.body;
 function enableDarkMode() {
     body.classList.add('night-mode');
     const elementsToToggle = [
-        ...body.querySelectorAll('.header, .footer, .learning-styles, .test-section, .test-container, #mobileMenu, .mobile-nav-link.highlight, .paths-section, .benefits-section, .testimonials-section, .cta-section, .section-header, .nav-link, .btn, .card, .tab-button, .path-card, .tab-content, .tab-title, .benefit-card, .testimonial, #loginForm, #cadastroForm')
+        ...body.querySelectorAll('.header, .footer, .learning-styles, .test-section, .chuteira, .peg, .test-container, #mobileMenu, .mobile-nav-link.highlight, .paths-section, .benefits-section, .testimonials-section, .cta-section, .section-header, .nav-link, .btn, .card, .tab-button, .path-card, .tab-content, .tab-title, .benefit-card, .testimonial, #loginForm, #cadastroForm')
     ];
-    elementsToToggle.forEach(element => element.classList.add('night-mode'));
+    elementsToToggle.forEach(element => {
+        element.classList.add('night-mode');
+        console.log(`${element.className} - night-mode added`); // Para verificar
+    });
 
     // Atualiza o texto do botão
     toggleNightModeBtn.textContent = 'Modo Claro';
@@ -154,9 +157,12 @@ function enableDarkMode() {
 function disableDarkMode() {
     body.classList.remove('night-mode');
     const elementsToToggle = [
-        ...body.querySelectorAll('.header, .footer, .learning-styles, .test-section, .test-container, #mobileMenu, .mobile-nav-link.highlight, .paths-section, .benefits-section, .testimonials-section, .cta-section, .section-header, .nav-link, .btn, .card, .tab-button, .path-card, .tab-content, .tab-title, .benefit-card, .testimonial, #loginForm, #cadastroForm')
+        ...body.querySelectorAll('.header, .footer, .learning-styles, .test-section, .chuteira, .peg, .test-container, #mobileMenu, .mobile-nav-link.highlight, .paths-section, .benefits-section, .testimonials-section, .cta-section, .section-header, .nav-link, .btn, .card, .tab-button, .path-card, .tab-content, .tab-title, .benefit-card, .testimonial, #loginForm, #cadastroForm')
     ];
-    elementsToToggle.forEach(element => element.classList.remove('night-mode'));
+    elementsToToggle.forEach(element => {
+        element.classList.remove('night-mode');
+        console.log(`${element.className} - night-mode removed`); // Para verificar
+    });
 
     // Atualiza o texto do botão
     toggleNightModeBtn.textContent = 'Modo Noturno';
