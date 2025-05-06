@@ -185,4 +185,3 @@ toggleNightModeBtn.addEventListener('click', () => {
         localStorage.setItem('night-mode', 'true');
     }
 });
-
