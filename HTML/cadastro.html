@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Cadastro - LearnQuest</title>
   <link rel="stylesheet" href="../CSS/cadastro.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet">
 </head>
 <body>
+
 
     <!-- Header -->
     <header class="header">
@@ -179,6 +181,69 @@
             </div>
         </footer>
     </div>
+
+  <div class="container">
+    <div class="logo">LearnQuest</div>
+    <form id="registerForm" autocomplete="on">
+      <div class="msg" id="registerMsg"></div>
+      <div class="input-group">
+        <label for="name">Nome Completo</label>
+        <input type="text" id="name" required placeholder="Seu nome">
+      </div>
+      <div class="input-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" required placeholder="seu@email.com">
+      </div>
+      <div class="input-group">
+        <label for="password">Senha</label>
+        <input type="password" id="password" required placeholder="Crie uma senha">
+      </div>
+      <div class="input-group">
+        <label for="confirm">Confirmar Senha</label>
+        <input type="password" id="confirm" required placeholder="Repita a senha">
+      </div>
+      <button class="btn" type="submit">Cadastrar</button>
+    </form>
+    <div style="margin-top:1.2rem;">
+      <span style="font-size:0.97rem;color:#868;">Já tem conta?</span>
+      <a class="link" href="login.html">Entrar</a>
+    </div>
+  </div>
+  <script>
+    // Validação simples de cadastro
+    document.getElementById('registerForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const pass = document.getElementById('password').value;
+      const confirm = document.getElementById('confirm').value;
+      const msg = document.getElementById('registerMsg');
+      msg.textContent = '';
+      // Validação básica
+      if(name.length < 4){
+        msg.textContent = "Nome muito curto.";
+        return;
+      }
+      if(!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)){
+        msg.textContent = "E-mail inválido.";
+        return;
+      }
+      if(pass.length < 6){
+        msg.textContent = "Senha deve ter ao menos 6 caracteres.";
+        return;
+      }
+      if(pass !== confirm){
+        msg.textContent = "As senhas não coincidem.";
+        return;
+      }
+      msg.style.color = "#27ae60";
+      msg.textContent = "Cadastro realizado com sucesso! Redirecionando...";
+      setTimeout(()=>window.location.href='login.html',1800);
+    });
+  </script>
+
+<script src="../JavaScript/script.js"></script>
+
 
 </body>
 </html>
