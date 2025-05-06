@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jogo de Matemática</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      background: #f4f7fb;
+      color: #222;
+    }
+    header {
+      background: #0d47a1;
+      color: #fff;
+      padding: 1.5rem 1rem 1rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    header p {
+      margin: 0.5rem 0 0;
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+    main {
+      max-width: 500px;
+      margin: 2rem auto;
+      padding: 1.5rem 1rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .question {
+      font-size: 1.25rem;
+      margin: 1.2rem 0 1rem 0;
+      color: #0d47a1;
+      font-weight: bold;
+      text-align: center;
+    }
+    .options label {
+      display: block;
+      margin-bottom: 0.7rem;
+      cursor: pointer;
+      font-size: 1.1rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    .options input[type="radio"] {
+      margin-right: 0.5rem;
+    }
+    .options label:hover {
+      background: #e8f0fe;
+    }
+    input[type="text"] {
+      padding: 0.5rem;
+      font-size: 1.2rem;
+      border: 1px solid #b0c4de;
+      border-radius: 4px;
+      width: 90px;
+      text-align: center;
+      margin-right: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    button {
+      padding: 0.5rem 1.6rem;
+      border: none;
+      border-radius: 4px;
+      background: #0d47a1;
+      color: #fff;
+      font-size: 1.1rem;
+      cursor: pointer;
+      margin-bottom: 1.2rem;
+      transition: background 0.2s;
+      margin-top: 0.8rem;
+    }
+    button:hover {
+      background: #08306b;
+    }
+    .feedback {
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      margin-top: 0.4rem;
+      min-height: 1.3em;
+      text-align: center;
+    }
+    .feedback.correct {
+      color: #128a3e;
+    }
+    .feedback.incorrect {
+      color: #b71c1c;
+    }
+    .score {
+      font-size: 1.05rem;
+      margin-top: 0.5rem;
+      color: #0d47a1;
+      font-weight: 500;
+      text-align: center;
+    }
+    .final-score {
+      font-size: 1.25rem;
+      color: #0d47a1;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 1.2rem;
+    }
+    @media (max-width: 600px) {
+      main {
+        margin: 1rem 0;
+        padding: 1rem 0.5rem;
+      }
+      .question {
+        font-size: 1.05rem;
+      }
+      input[type="text"] {
+        font-size: 1rem;
+        width: 65px;
+      }
+      .options label {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Jogo de Matemática</h1>
+    <p>Resolva questões, ganhe pontos e aprenda brincando!</p>
+  </header>
+  <main>
+    <div id="gameArea">
+      <div class="question" id="question">Carregando...</div>
+      <form id="answerForm" onsubmit="event.preventDefault(); checkAnswer();"></form>
+      <div class="feedback" id="feedback"></div>
+      <div class="score" id="score"></div>
+      <button id="nextBtn" style="display:none;" onclick="nextQuestion()">Próxima questão</button>
+    </div>
+    <div id="finalScreen" style="display:none;">
+      <div class="final-score" id="finalScore"></div>
+      <button onclick="restartGame()">Jogar novamente</button>
+    </div>
+  </main>
+  <script>
+    // Questões de matemática (12)
+    const mathQuestions = [
+      {
+        type: "input",
+        question: "Quanto é 12 + 37?",
+        answer: "49"
+      },
+      {
+        type: "input",
+        question: "Quanto é 95 - 28?",
+        answer: "67"
+      },
+      {
+        type: "input",
+        question: "Quanto é 8 × 7?",
+        answer: "56"
+      },
+      {
+        type: "input",
+        question: "Quanto é 81 ÷ 9?",
+        answer: "9"
+      },
+      {
+        type: "input",
+        question: "Qual o valor de 3² (3 elevado ao quadrado)?",
+        answer: "9"
+      },
+      {
+        type: "input",
+        question: "Qual a raiz quadrada de 49?",
+        answer: "7"
+      },
+      {
+        type: "input",
+        question: "Quanto é 20% de 150?",
+        answer: "30"
+      },
+      {
+        type: "input",
+        question: "Quanto é 3/4 de 80?",
+        answer: "60"
+      },
+      {
+        type: "input",
+        question: "Qual o valor de 10³ (10 elevado à terceira potência)?",
+        answer: "1000"
+      },
+      {
+        type: "input",
+        question: "Se João tinha 12 balas e ganhou mais 17, depois perdeu 8, com quantas balas ficou?",
+        answer: "21"
+      },
+      {
+        type: "input",
+        question: "Qual é o número inteiro mais próximo de π (pi)?",
+        answer: "3"
+      },
+      {
+        type: "multiple",
+        question: "Qual destas opções representa um número primo?",
+        options: ["15", "27", "23", "39"],
+        answer: "23"
+      }
+    ];
+
+    // Variáveis de controle
+    let questions = [];
+    let current = 0;
+    let score = 0;
+    let correct = 0;
+    let total = 0;
+
+    // Inicialização do jogo
+    function initGame() {
+      questions = mathQuestions;
+      current = 0;
+      score = 0;
+      correct = 0;
+      total = 0;
+      document.getElementById('finalScreen').style.display = 'none';
+      document.getElementById('gameArea').style.display = 'block';
+      showQuestion();
+      updateScore();
+    }
+
+    function showQuestion() {
+  document.getElementById("feedback").textContent = "";
+  document.getElementById("feedback").className = "feedback";
+  document.getElementById("nextBtn").style.display = "none";
+  const q = questions[current];
+  const qNum = current + 1;
+  let title = `Questão ${qNum} de ${questions.length}`;
+  document.getElementById("question").innerHTML = `<span style="font-size:0.9em;color:#444;">${title}</span><br>${q.question}`;
+  const form = document.getElementById("answerForm");
+  form.innerHTML = ""; // limpa
+
+  if (q.type === "input") {
+    form.innerHTML = `<input type="text" id="userAnswer" required autocomplete="off" placeholder="Sua resposta"> 
+    <button type="submit">Responder</button>`;
+    setTimeout(() => { document.getElementById("userAnswer").focus() }, 150);
+  } else if (q.type === "multiple") {
+    let opsHtml = `<div class="options">`;
+    q.options.forEach((opt) => {
+      opsHtml += `<label><input type="radio" name="option" value="${opt}">${opt}</label>`;
+    });
+    opsHtml += `</div><button type="submit">Responder</button>`;
+    form.innerHTML = opsHtml;
+  }
+}
+
+function checkAnswer() {
+  const q = questions[current];
+  let userVal = "";
+  let isCorrect = false;
+  if (q.type === "input") {
+    userVal = document.getElementById("userAnswer").value.trim().replace(",", ".");
+    if (userVal === "") {
+      showFeedback("Por favor, digite sua resposta!", false);
+      return;
+    }
+    isCorrect = userVal.toLowerCase() === q.answer.toLowerCase();
+  } else if (q.type === "multiple") {
+    const opts = document.getElementsByName("option");
+    for (let opt of opts) {
+      if (opt.checked) userVal = opt.value;
+    }
+    if (!userVal) {
+      showFeedback("Por favor, selecione uma opção!", false);
+      return;
+    }
+    isCorrect = userVal.trim() === q.answer.trim();
+  }
+
+  total++;
+  if (isCorrect) {
+    showFeedback("Correto! 🎉", true);
+    score += 10;
+    correct++;
+  } else {
+    showFeedback(`Errado! O correto era: <b>${q.answer}</b>.`, false);
+  }
+  updateScore();
+  document.getElementById("nextBtn").style.display = "inline-block";
+  const inputs = document.querySelectorAll("#answerForm input, #answerForm button");
+  inputs.forEach(inp => inp.disabled = true);
+}
+
+function showFeedback(msg, isCorrect) {
+  const fb = document.getElementById("feedback");
+  fb.innerHTML = msg;
+  fb.className = isCorrect ? "feedback correct" : "feedback incorrect";
+}
+
+function nextQuestion() {
+  current++;
+  if (current < questions.length) {
+    showQuestion();
+    const inputs = document.querySelectorAll("#answerForm input, #answerForm button");
+    inputs.forEach(inp => inp.disabled = false);
+  } else {
+    showFinalScreen();
+  }
+}
+
+function updateScore() {
+  document.getElementById("score").textContent =
+    `Pontos: ${score} | Acertos: ${correct} de ${total}`;
+}
+
+function showFinalScreen() {
+  document.getElementById("gameArea").style.display = "none";
+  document.getElementById("finalScreen").style.display = "block";
+  document.getElementById("finalScore").innerHTML =
+    `Parabéns!<br>Você fez <b>${score}</b> pontos, acertando <b>${correct}</b> de <b>${total}</b> questões.`;
+}
+
+function restartGame() {
+  initGame();
+}
+
+// Começar jogo
+window.onload = () => {
+  initGame();
+};
+  </script>
+</body>
+</html>

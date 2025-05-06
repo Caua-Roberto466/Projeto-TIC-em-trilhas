@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mapa Mental de Matemática</title>
+  <style>
+    body {
+      margin: 0;
+      background: #f7fafd;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #222;
+    }
+
+    header {
+      background: #1769aa;
+      color: #fff;
+      text-align: center;
+      padding: 1.3rem 0 1rem 0;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    header p {
+      margin: .2rem 0 0 0;
+      font-size: 1.1rem;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 80vh;
+      padding: 1.5rem 0.5rem;
+    }
+
+    #mapa-mental-container {
+      width: 100%;
+      max-width: 900px;
+      overflow-x: auto;
+      position: relative;
+    }
+
+    #mapa-mental {
+      width: 800px;
+      height: 460px;
+      margin: 0 auto;
+      position: relative;
+      background: #f0f6fa;
+      border-radius: 18px;
+      box-shadow: 0 3px 12px #0001;
+    }
+
+    .node {
+      position: absolute;
+      padding: 0.7rem 1.2rem;
+      background: #fff;
+      border: 2px solid #1769aa;
+      border-radius: 999px;
+      font-weight: 600;
+      color: #1769aa;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 2px 7px #1769aa22;
+      transition: background 0.2s, color 0.2s, border 0.2s;
+      z-index: 1;
+      user-select: none;
+    }
+
+    .node:hover,
+    .node.active {
+      background: #1769aa;
+      color: #fff;
+      border-color: #1769aa;
+      z-index: 2;
+    }
+
+    svg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    #info-box {
+      margin-top: 2rem;
+      max-width: 510px;
+      width: 94vw;
+      min-height: 60px;
+      background: #e3f2fd;
+      border: 1.5px solid #1769aa55;
+      border-radius: 8px;
+      padding: 1.3rem 1.1rem 1.3rem 1.1rem;
+      box-shadow: 0 1px 8px #1769aa18;
+      font-size: 1.07rem;
+      color: #17406f;
+      transition: background .2s, border .2s;
+      display: none;
+    }
+
+    #info-box.active {
+      display: block;
+      animation: fadeIn .3s;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 900px) {
+      #mapa-mental {
+        width: 700px;
+        height: 400px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      #mapa-mental {
+        width: 520px;
+        height: 350px;
+      }
+
+      .node {
+        padding: 0.48rem 0.7rem;
+        font-size: 0.98rem;
+      }
+    }
+
+    @media (max-width: 560px) {
+      #mapa-mental {
+        width: 370px;
+        height: 370px;
+      }
+
+      .node {
+        font-size: 0.93rem;
+        padding: 0.37rem 0.6rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Mapa Mental de Matemática</h1>
+    <p>Clique nos temas para aprender mais!</p>
+  </header>
+  <main>
+    <div id="mapa-mental-container">
+      <div id="mapa-mental">
+        <!-- SVG para linhas -->
+        <svg id="mapa-svg"></svg>
+        <!-- Nós do mapa mental -->
+        <div class="node" id="nucleo" style="left: 50%; top: 50%; transform:translate(-50%,-50%);">Matemática</div>
+        <div class="node" id="n1" style="left: 50%; top: 8%; transform:translateX(-50%);">Números</div>
+        <div class="node" id="n2" style="left: 84%; top: 23%;">Operações</div>
+        <div class="node" id="n3" style="left: 83%; top: 72%;">Frações</div>
+        <div class="node" id="n4" style="left: 50%; top: 92%; transform:translateX(-50%);">Geometria</div>
+        <div class="node" id="n5" style="left: 15%; top: 75%;">Medidas</div>
+        <div class="node" id="n6" style="left: 15%; top: 23%;">Problemas</div>
+        <!-- Subtemas (exemplo: clique neles para mais detalhes) -->
+        <div class="node" id="n2a" style="left: 67%; top: 10%;">Adição</div>
+        <div class="node" id="n2b" style="left: 94%; top: 48%;">Multiplicação</div>
+        <div class="node" id="n3a" style="left: 67%; top: 85%;">Decimal</div>
+        <div class="node" id="n4a" style="left: 50%; top: 77%;">Figuras</div>
+      </div>
+    </div>
+    <div id="info-box"></div>
+  </main>
+  <script>
+    // Dados dos conceitos do mapa
+    const conceitos = {
+      "nucleo": {
+        titulo: "Matemática",
+        texto: "A matemática é a ciência dos números, formas, quantidades e relações. Ela está presente no nosso dia a dia, desde contar objetos até resolver problemas complexos."
+      },
+      "n1": {
+        titulo: "Números",
+        texto: "Os números são a base da matemática. Incluem números naturais (0, 1, 2...), inteiros (positivos e negativos), racionais (frações e decimais) e irracionais (como π).<br><b>Exemplo:</b> Contar objetos, identificar posição numa fila."
+      },
+      "n2": {
+        titulo: "Operações",
+        texto: "São as ações que fazemos com os números: adição, subtração, multiplicação e divisão. Elas ajudam a resolver situações do cotidiano, como somar preços ou dividir um bolo."
+      },
+      "n3": {
+        titulo: "Frações",
+        texto: "Frações representam partes de um todo. Por exemplo, 1/2 significa meia pizza. Também existem frações decimais (como 0,5).<br><b>Exemplo:</b> Dividir um chocolate entre amigos."
+      },
+      "n4": {
+        titulo: "Geometria",
+        texto: "A geometria estuda as formas, tamanhos e posições das figuras. Inclui quadrados, triângulos, círculos e sólidos como cubos e esferas.<br><b>Exemplo:</b> Calcular a área de uma sala ou o perímetro de um campo."
+      },
+      "n5": {
+        titulo: "Medidas",
+        texto: "Trata de medir grandezas como comprimento, massa, tempo e capacidade. Usamos unidades como metro, litro e quilograma no dia a dia."
+      },
+      "n6": {
+        titulo: "Problemas",
+        texto: "Resolver problemas matemáticos é aplicar o raciocínio lógico para encontrar soluções para situações reais ou hipotéticas.<br><b>Exemplo:</b> Se cada caixa tem 6 lápis, quantos lápis há em 4 caixas?"
+      },
+      "n2a": {
+        titulo: "Adição",
+        texto: "Adição é juntar quantidades. <br><b>Exemplo:</b> 3 + 5 = 8. Somar dinheiro, pontos, objetos."
+      },
+      "n2b": {
+        titulo: "Multiplicação",
+        texto: "Multiplicação é uma adição repetida.<br><b>Exemplo:</b> 4 × 3 = 12, que é o mesmo que 4 + 4 + 4."
+      },
+      "n3a": {
+        titulo: "Decimal",
+        texto: "Números decimais representam partes menores que 1, usando vírgula. <br><b>Exemplo:</b> 0,75 é o mesmo que 75/100."
+      },
+      "n4a": {
+        titulo: "Figuras",
+        texto: "Figuras geométricas são formas como triângulos, quadrados e círculos. Podemos calcular área e perímetro dessas figuras."
+      }
+    };
+
+    // Ligações do mapa (de, para)
+    javascript
+
+    Copiar
+    const ligacoes = [
+      ["nucleo", "n1"], ["nucleo", "n2"], ["nucleo", "n3"], ["nucleo", "n4"], ["nucleo", "n5"], ["nucleo", "n6"],
+      ["n2", "n2a"], ["n2", "n2b"],
+      ["n3", "n3a"],
+      ["n4", "n4a"]
+    ];
+
+    // Função para desenhar linhas entre os nós
+    function desenhaLinhas() {
+      const svg = document.getElementById("mapa-svg");
+      svg.innerHTML = "";
+      ligacoes.forEach(([id1, id2]) => {
+        const n1 = document.getElementById(id1);
+        const n2 = document.getElementById(id2);
+        if (!n1 || !n2) return;
+
+        const r1 = n1.getBoundingClientRect();
+        const r2 = n2.getBoundingClientRect();
+        const p1 = {
+          x: r1.left + r1.width / 2,
+          y: r1.top + r1.height / 2
+        };
+        const p2 = {
+          x: r2.left + r2.width / 2,
+          y: r2.top + r2.height / 2
+        };
+
+        // Desenha linha SVG
+        const linha = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        linha.setAttribute("x1", p1.x);
+        linha.setAttribute("y1", p1.y);
+        linha.setAttribute("x2", p2.x);
+        linha.setAttribute("y2", p2.y);
+        linha.setAttribute("stroke", "#1769aa77");
+        linha.setAttribute("stroke-width", "3");
+        linha.setAttribute("stroke-linecap", "round");
+        svg.appendChild(linha);
+      });
+    }
+
+    // Exibe info do nó clicado
+    function mostraInfo(id) {
+      const box = document.getElementById("info-box");
+      if (conceitos[id]) {
+        box.innerHTML = `<b>${conceitos[id].titulo}:</b><br>${conceitos[id].texto}`;
+        box.classList.add("active");
+      } else {
+        box.innerHTML = "";
+        box.classList.remove("active");
+      }
+
+      // Marca o nó ativo
+      document.querySelectorAll('.node').forEach(n => n.classList.remove('active'));
+      const activeNode = document.getElementById(id);
+      if (activeNode) {
+        activeNode.classList.add('active');
+      }
+    }
+
+    // Adiciona eventos nos nós
+    document.addEventListener("DOMContentLoaded", function () {
+      // Ao clicar em um nó, mostra info
+      for (let id in conceitos) {
+        const el = document.getElementById(id);
+        if (el) {
+          el.addEventListener("click", function () { mostraInfo(id); });
+        }
+      }
+
+      // Por padrão, mostra o núcleo
+      mostraInfo("nucleo");
+
+      // Desenha linhas
+      desenhaLinhas();
+
+      window.addEventListener('resize', desenhaLinhas);
+    });
+  </script>
+</body>
+
+</html>

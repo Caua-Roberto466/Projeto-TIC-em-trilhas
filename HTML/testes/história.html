@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infográfico: Revolução Francesa</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+        }
+
+        .infografico {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            color: #333;
+        }
+
+        header p {
+            font-size: 18px;
+            color: #777;
+        }
+
+        .linha-do-tempo {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .evento {
+            background-color: #e7f7ff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 250px;
+            margin: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .evento:hover {
+            transform: scale(1.05);
+        }
+
+        h2 {
+            font-size: 20px;
+            color: #007bff;
+        }
+
+        .detais {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .detalhe {
+            background-color: #f1f1f1;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+
+        .detalhe h3 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .detalhe p {
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="infografico">
+        <header>
+            <h1>Infográfico: Revolução Francesa</h1>
+            <p>Exploração visual dos principais eventos da Revolução Francesa.</p>
+        </header>
+
+        <section class="linha-do-tempo">
+            <div class="evento" id="evento-1">
+                <h2>1789 - Queda da Bastilha</h2>
+                <p>Início da revolução com a tomada da prisão da Bastilha pelos revolucionários.</p>
+            </div>
+            <div class="evento" id="evento-2">
+                <h2>1791 - Declaração dos Direitos do Homem e do Cidadão</h2>
+                <p>Declaração que consagrava direitos fundamentais de liberdade e igualdade.</p>
+            </div>
+            <div class="evento" id="evento-3">
+                <h2>1793 - Execução de Luís XVI</h2>
+                <p>O rei Luís XVI foi guilhotinado após ser condenado por traição.</p>
+            </div>
+            <div class="evento" id="evento-4">
+                <h2>1799 - Golpe de Napoleão</h2>
+                <p>Napoleão Bonaparte assume o poder após um golpe de estado.</p>
+            </div>
+        </section>
+
+        <section class="detalhes">
+            <h2>Detalhes</h2>
+            <div class="detalhe" id="detalhe-1">
+                <h3>Queda da Bastilha</h3>
+                <p>A Queda da Bastilha foi um evento decisivo na Revolução Francesa. No dia 14 de julho de 1789, os
+                    revolucionários invadiram a prisão real, um símbolo do poder absoluto da monarquia. Este evento é
+                    comemorado até hoje como o Dia da Bastilha.</p>
+            </div>
+            <div class="detalhe" id="detalhe-2">
+                <h3>Declaração dos Direitos do Homem e do Cidadão</h3>
+                <p>Em 1791, a Assembleia Nacional Francesa adotou este documento, que foi um marco na história dos
+                    direitos humanos. Ele proclamou a igualdade de todos os cidadãos perante a lei e estabeleceu
+                    liberdades essenciais, como a liberdade de expressão e de religião.</p>
+            </div>
+            <div class="detalhe" id="detalhe-3">
+                <h3>Execução de Luís XVI</h3>
+                <p>Em 1793, o rei Luís XVI foi executado na guilhotina, um evento que simbolizou a derrota do
+                    absolutismo monárquico. A execução foi parte de um movimento maior de radicalização da revolução.
+                </p>
+            </div>
+            <div class="detalhe" id="detalhe-4">
+                <h3>Golpe de Napoleão</h3>
+                <p>Em 1799, Napoleão Bonaparte executou um golpe de estado, encerrando a Revolução Francesa e iniciando
+                    o período do Consulado e posteriormente o Império Napoleônico.</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+
+        document.querySelectorAll('.evento').forEach(function (evento) {
+            evento.addEventListener('click', function () {
+                var id = evento.id;
+                var detalheId = 'detalhe-' + id.split('-')[1];
+
+                // Esconde todos os detalhes
+                document.querySelectorAll('.detalhe').forEach(function (detalhe) {
+                    detalhe.style.display = 'none';
+                });
+
+                // Mostra o detalhe correspondente
+                document.getElementById(detalheId).style.display = 'block';
+            });
+        });
+    </script>
+</body>
+
+</html>

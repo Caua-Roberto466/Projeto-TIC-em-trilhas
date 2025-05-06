@@ -340,8 +340,8 @@ img {
 }
 
 .logo-img {
-  width: 40px;
-  height: 40px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
 }
 
@@ -786,6 +786,13 @@ img {
   position: relative;
 }
 
+.path-image img {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  border-radius: 4%;
+}
+
 .path-badge {
   position: absolute;
   top: 0.5rem;
@@ -870,8 +877,8 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 25px;
+  height: 25px;
   background-color: var(--light-yellow);
   border-radius: 50%;
   margin-right: 1rem;
@@ -931,8 +938,8 @@ img {
 }
 
 .author-avatar {
-  width: 48px;
-  height: 48px;
+  width: 68px;
+  height: 68px;
   background-color: var(--mint-green);
   border-radius: 50%;
   display: flex;
@@ -941,6 +948,11 @@ img {
   margin-right: 1rem;
   color: white;
   font-weight: bold;
+}
+.author-avatar img{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
 }
 
 .author-name {
