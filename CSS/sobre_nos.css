@@ -388,7 +388,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 .submit-btn {
-    background: linear-gradient(to right, #3498db, #2ecc71);
+    background: #98d8c8;
     color: #fff;
     border: none;
     padding: 12px 30px;
@@ -400,7 +400,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 .submit-btn:hover {
-    opacity: 0.9;
+    opacity: 0.5;
 }
 
 .error-message {
