@@ -1,40 +1,298 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre nós</title>
-    <link rel="stylesheet" href="../CSS/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <img src="https://via.placeholder.com/40" alt="Logo AprendeJá" class="logo-img">
-                <h1 class="logo-text">AprendeJá</h1>
+ <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sobre Nós - LearnQuest</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="../CSS/sobre_nos.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <h1>LearnQuest</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </nav>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
-            <nav class="main-nav">
-                <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link">Início</a></li>
-                    <li><a href="#how-it-works" class="nav-link">Como Funciona</a></li>
-                    <li><a href="#for-schools" class="nav-link">Para Escolas</a></li>
-                    <li><a href="#for-families" class="nav-link">Para Famílias</a></li>
-                </ul>
-            </nav>
-            <div class="header-buttons">
-                <button class="btn" id="toggleNightMode">Modo Noturno</button>
-                <a href="login.html"><button class="btn btn-outline">Entrar</button></a>
-                <a href="cadastro.html"><button class="btn btn-primary">Começar Grátis</button></a>
-                <button class="menu-toggle" id="menuToggle">
-                    <span class="menu-icon"></span>
-                </button>
+        </header>
+    
+        <section class="hero">
+            <div class="container">
+                <h1>Transformando o Futuro da Educação</h1>
+                <p>Conheça a LearnQuest e nossa missão de revolucionar o aprendizado</p>
             </div>
-        </div>
-    </header>
-
+        </section>
+    
+        <section class="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Sobre a LearnQuest</h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="../img/11_09_2022_mmt_Lousa-Digital-Super-Geek-66-1024x683.png" alt="LearnQuest Office">
+                    </div>
+                    <div class="about-text">
+                        <h3>Nossa História</h3>
+                        <p>Fundada em 2015, a LearnQuest nasceu da visão de transformar a maneira como as pessoas aprendem e se desenvolvem profissionalmente. Começamos como uma pequena startup com grandes sonhos e, hoje, somos referência em soluções educacionais inovadoras.</p>
+                        
+                        <h3>Quem Somos</h3>
+                        <p>Somos uma empresa de tecnologia educacional dedicada a criar experiências de aprendizado personalizadas e eficazes. Nossa equipe é composta por educadores apaixonados, desenvolvedores talentosos e especialistas em experiência do usuário que trabalham juntos para revolucionar o setor educacional.</p>
+                        
+                        <h3>O Que Fazemos</h3>
+                        <p>Desenvolvemos plataformas de aprendizado adaptativas que combinam tecnologia de ponta com metodologias pedagógicas comprovadas. Nossas soluções atendem desde estudantes individuais até grandes corporações, sempre com foco em resultados mensuráveis e experiências envolventes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section class="mission-vision">
+            <div class="container">
+                <div class="mission">
+                    <div class="icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Nossa Missão</h3>
+                    <p>Democratizar o acesso à educação de qualidade através de tecnologias inovadoras, tornando o aprendizado mais acessível, personalizado e eficaz para todos.</p>
+                </div>
+                <div class="vision">
+                    <div class="icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Nossa Visão</h3>
+                    <p>Ser reconhecida globalmente como a empresa que transformou o paradigma educacional, criando um mundo onde cada pessoa possa desenvolver seu potencial máximo através do aprendizado contínuo.</p>
+                </div>
+                <div class="values">
+                    <div class="icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Nossos Valores</h3>
+                    <p>Inovação, excelência, inclusão, colaboração e impacto positivo são os pilares que guiam todas as nossas decisões e ações no dia a dia.</p>
+                </div>
+            </div>
+        </section>
+    
+        <section class="team">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Nossa Equipe</h2>
+                    <div class="underline"></div>
+                </div>
+                <p class="team-intro">Conheça os talentos por trás da LearnQuest que trabalham incansavelmente para transformar a educação.</p>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="/placeholder.svg?height=300&width=300" alt="CEO">
+                        </div>
+                        <h3>Ana Silva</h3>
+                        <p class="position">CEO & Fundadora</p>
+                        <p class="bio">Com mais de 15 anos de experiência em educação e tecnologia, Ana lidera nossa visão estratégica e crescimento.</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="/placeholder.svg?height=300&width=300" alt="CTO">
+                        </div>
+                        <h3>Pedro Santos</h3>
+                        <p class="position">CTO</p>
+                        <p class="bio">Especialista em IA e aprendizado de máquina, Pedro supervisiona todas as nossas inovações tecnológicas.</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="/placeholder.svg?height=300&width=300" alt="Head of Education">
+                        </div>
+                        <h3>Carla Oliveira</h3>
+                        <p class="position">Diretora Pedagógica</p>
+                        <p class="bio">Doutora em Educação, Carla garante que nossas soluções sejam pedagogicamente sólidas e eficazes.</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="/placeholder.svg?height=300&width=300" alt="Head of Design">
+                        </div>
+                        <h3>Rafael Costa</h3>
+                        <p class="position">Diretor de Design</p>
+                        <p class="bio">Com um olhar apurado para UX/UI, Rafael cria experiências de usuário intuitivas e envolventes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section class="achievements">
+            <div class="container">
+                <div class="achievement">
+                    <div class="number">500+</div>
+                    <div class="label">Clientes Corporativos</div>
+                </div>
+                <div class="achievement">
+                    <div class="number">2M+</div>
+                    <div class="label">Usuários Ativos</div>
+                </div>
+                <div class="achievement">
+                    <div class="number">15</div>
+                    <div class="label">Países Atendidos</div>
+                </div>
+                <div class="achievement">
+                    <div class="number">98%</div>
+                    <div class="label">Taxa de Satisfação</div>
+                </div>
+            </div>
+        </section>
+    
+        <section id="contato" class="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Entre em Contato</h2>
+                    <div class="underline"></div>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Informações de Contato</h3>
+                        <p>Estamos sempre disponíveis para ajudar e responder a quaisquer perguntas que você possa ter.</p>
+                        
+                        <br><div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                           <br> <p>Av. Paulista, 1000, São Paulo - SP</p>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <p>+55 (11) 3456-7890</p>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <p>contato: </p>
+                        </div>
+                        
+                        <div class="social-media">
+                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h3>Envie-nos uma Mensagem</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Nome Completo</label>
+                                <input type="text" id="name" name="name" required>
+                                <span class="error-message" id="nameError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="error-message" id="emailError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Telefone</label>
+                                <input type="tel" id="phone" name="phone">
+                                <span class="error-message" id="phoneError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Assunto</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="" disabled selected>Selecione um assunto</option>
+                                    <option value="partnership">Parceria</option>
+                                    <option value="support">Suporte</option>
+                                    <option value="sales">Vendas</option>
+                                    <option value="other">Outro</option>
+                                </select>
+                                <span class="error-message" id="subjectError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Mensagem</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                                <span class="error-message" id="messageError"></span>
+                            </div>
+                            
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="privacy" name="privacy" required>
+                                <label for="privacy">Concordo com a <a href="#">Política de Privacidade</a></label>
+                                <span class="error-message" id="privacyError"></span>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                        </form>
+                        <div id="formSuccess" class="success-message">
+                            Mensagem enviada com sucesso! Entraremos em contato em breve.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <h2>LearnQuest</h2>
+                        <p>Transformando o futuro da educação</p>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <h3>Links Rápidos</h3>
+                        <ul>
+                            <li><a href="#">Início</a></li>
+                            <li><a href="#">Sobre Nós</a></li>
+                            <li><a href="#">Serviços</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Carreiras</a></li>
+                            <li><a href="#">Contato</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-services">
+                        <h3>Nossos Serviços</h3>
+                        <ul>
+                            <li><a href="#">Plataforma de Aprendizado</a></li>
+                            <li><a href="#">Treinamento Corporativo</a></li>
+                            <li><a href="#">Consultoria Educacional</a></li>
+                            <li><a href="#">Desenvolvimento de Conteúdo</a></li>
+                            <li><a href="#">Análise de Dados Educacionais</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-newsletter">
+                        <h3>Newsletter</h3>
+                        <p>Inscreva-se para receber novidades e atualizações</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Seu email" required>
+                            <button type="submit">Inscrever</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2023 LearnQuest. Todos os direitos reservados.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Termos de Uso</a>
+                        <a href="#">Política de Privacidade</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    
+        <script src="../JavaScript/script.js"></script>
 
     <footer class="footer">
         <div class="container">
