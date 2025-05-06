@@ -18,8 +18,7 @@
                 <ul class="nav-list">
                     <li><a href="index.html" class="nav-link">Início</a></li>
                     <li><a href="#how-it-works" class="nav-link">Como Funciona</a></li>
-                    <li><a href="#for-schools" class="nav-link">Para Escolas</a></li>
-                    <li><a href="#for-families" class="nav-link">Para Famílias</a></li>
+                    <li><a href="#for-schools" class="nav-link">Planos</a></li>
                 </ul>
             </nav>
             <div class="header-buttons">
@@ -36,19 +35,18 @@
       <ul class="mobile-nav-list">
           <li><a href="../HTML/index.html" class="mobile-nav-link">Início</a></li>
           <li><a href="#how-it-works" class="mobile-nav-link">Como Funciona</a></li>
-          <li><a href="#for-schools" class="mobile-nav-link">Para Escolas</a></li>
-          <li><a href="#for-families" class="mobile-nav-link">Para Famílias</a></li>
+          <li><a href="#for-schools" class="mobile-nav-link">Planos</a></li>
           <li><a href="#" class="mobile-nav-link">Entrar</a></li>
           <li><a href="#" class="mobile-nav-link highlight">Começar Grátis</a></li>
       </ul>
     </div>
     <br><br><br><br>
-    <div class="container">
+    <div class="container" id="cadastro">
         <form id="cadastroForm" autocomplete="off">
             <h3>Cadastrar Usuário</h3>
-            <input type="text" id="nome" placeholder="Nome completo" required>
-            <input type="email" id="email" placeholder="E-mail" required>
-            <input type="password" id="senha" placeholder="Senha" required minlength="4">
+            <input type="text" id="nome" placeholder="Nome completo" required><br>
+            <input type="email" id="email" placeholder="E-mail" required><br>
+            <input type="password" id="senha" placeholder="Senha" required minlength="4"><br>
             <button class="envi" type="submit">Cadastrar</button>
             
             <div class="msg1" id="msg1"></div>
@@ -85,6 +83,9 @@
     }
     </script>
     <script src="../JavaScript/script.js"></script>
+    
+  
+    
 
     <!-- Footer -->
     <footer class="footer">
@@ -118,7 +119,7 @@
                         </a>
                     </div>
                 </div>
-
+                
                 <div class="footer-links">
                     <div class="footer-column">
                         <h4 class="footer-title">Plataforma</h4>
@@ -178,5 +179,6 @@
             </div>
         </div>
     </footer>
+
 </body>
 </html>

@@ -138,6 +138,15 @@ body.night-mode {
   color: #fff; 
 }
 
+#mobileMenu.night-mode{
+  background-color: #2c2b2b;
+}
+
+.mobile-nav-link.highlight.night-mode{
+  background-color: #e08500;
+  color: #fff;
+}
+
 /* Seção de benefícios */
 .benefits-section.night-mode {
   background-color: var(--header-footer-background); 
@@ -159,6 +168,10 @@ body.night-mode {
 /* Seção de depoimentos */
 .testimonials-section.night-mode {
   background-color: var(--header-footer-background); 
+}
+.test-container.night-mode{
+  background-color: #333;
+  border: #1e1e1e;
 }
 
 /* Depoimentos */
@@ -403,7 +416,7 @@ img {
 .mobile-menu {
   display: none;
   background-color: var(--mint-green);
-  padding: 1rem;
+  padding: 3.5rem;
   position: absolute;
   top: 70px;
   left: 0;
