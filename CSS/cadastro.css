@@ -1,408 +1,20 @@
-
 :root {
-
-  /* Cores */
-  --background-color: #ffffff;
-  --dark-background: #121212;
-  --header-footer-background: #1e1e1e;
-  --card-background: #2a2a2a;
-  --highlight-color: #ffcc00;
-  --text-color: var(--medium-gray);
-  --mint-green: #98D8C8;
-  --orange: #FF9F1C;
-  --medium-gray: #666666;
-  --light-yellow: #FFF9C4;
-  --border-color: #e5e5e5;
-  --orange-hover: #e08500;
-  --mint-green-light: rgba(152, 216, 200, 0.2);
-  
-  /* Estilos de interface */
-  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --border-radius: 8px;
-  --transition: all 0.3s ease;
-}
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: 'Inter', sans-serif;
-      color: var(--medium-gray);
-      background-color: var(--background-color);
-      line-height: 1.6;
-    }
-    
-    body.night-mode {
-      background-color: #121212; 
-      color: #ffffff; 
-    }
-    
-    .header.night-mode {
-      background-color: var(--header-footer-background);
-}
-    .chuteira.night-mode {
-      background-color: #1a1a1a; 
-      color: #ffffff; 
-    }
-    
-    .nav-link.night-mode {
-      color: #fff;
-    }
-    
-    .btn.night-mode {
-      border-color: #fff; 
-      color: var(--medium-gray); 
-    }
-    
-    .btn.night-mode:hover {
-      background-color: #fff; 
-      color: #121212; 
-    }
-    
-    .card.night-mode {
-      background-color: #2a2a2a; 
-      border: 1px solid #444; 
-    }
-    #cadastroForm.night-mode{
-      background-color: #444;
-    }
-
-    #mobileMenu.night-mode{
-      background-color: #2c2b2b;
-    }
-    .peg.night-mode{
-      background-color: #1e1e1e;
-      color: fff;
-    }
-
-    .mobile-nav-link.highlight.night-mode{
-      background-color: #e08500;
-      color: #fff;
-    }
-    
-    .container {
-        text-align: center;
-        padding: 50vh;
-    }
-    
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 50px;
-    }
-    #cadastro{
-      height: 50vh;
-    }
-
-    #cadastroForm{
-      height: 40vh;
-    }
-
-    #nome{
-      height: 4vh;
-      width: 30vh;
-    }
-
-    #email{
-      height: 4vh;
-      width: 30vh;
-    }
-    #senha{
-      height: 4vh;
-      width: 30vh;
-    }
-    
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-    
-    ul {
-      list-style: none;
-    }
-    
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-    
-    .hidden {
-      display: none;
-    }
-    
-    /* Typography */
-    .section-title {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--medium-gray);
-      margin-bottom: 1rem;
-    }
-    
-    .section-text {
-      font-size: 1.1rem;
-      max-width: 800px;
-      margin: 0 auto 2rem;
-    }
-    
-    .highlight {
-      background-color: var(--light-yellow);
-      padding: 0 5px;
-      color: #1e1e1e;
-    }
-    
-    /* Buttons */
-    .btn {
-      display: inline-block;
-      padding: 12px 24px;
-      border-radius: var(--border-radius);
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition);
-      border: none;
-      font-size: 1rem;
-    }
-    
-    
-    .btn-primary {
-      background-color: var(--orange);
-      color: white;
-    }
-    
-    .btn-primary:hover {
-      background-color: var(--orange-hover);
-    }
-    
-    .btn-outline {
-      background-color: transparent;
-      border: 2px solid var(--medium-gray);
-      color: var(--medium-gray);
-    }
-    
-    .btn-outline:hover {
-      background-color: var(--medium-gray);
-      color: white;
-    }
-    
-    .btn-outline-orange {
-      background-color: transparent;
-      border: 2px solid var(--orange);
-      color: var(--orange);
-    }
-    
-    .btn-outline-orange:hover {
-      background-color: var(--orange);
-      color: white;
-    }
-    
-    .btn-outline-mint {
-      background-color: transparent;
-      border: 2px solid var(--mint-green);
-      color: var(--medium-gray);
-    }
-    
-    .btn-outline-mint:hover {
-      background-color: var(--mint-green);
-      color: var(--medium-gray);
-    }
-    
-    .btn:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-    
-    /* Header */
-    .header {
-      background-color: var(--mint-green);
-      padding: 1rem 0;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    
-    .header .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    .logo-img {
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-    }
-    
-    .logo-text {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--medium-gray);
-    }
-    
-    .main-nav {
-      display: none;
-    }
-    
-    .nav-list {
-      display: flex;
-      gap: 8rem;
-    }
-    
-    .nav-link {
-      color: var(--medium-gray);
-      transition: var(--transition);
-    }
-    
-    .nav-link:hover {
-      color: var(--orange);
-    }
-    
-    .header-buttons {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    
-    .menu-toggle {
-      background: none;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 24px;
-      width: 24px;
-      padding: 0;
-    }
-    
-    .menu-icon {
-      position: relative;
-      width: 24px;
-      height: 2px;
-      background-color: var(--medium-gray);
-    }
-    
-    .menu-icon::before,
-    .menu-icon::after {
-      content: '';
-      position: absolute;
-      width: 24px;
-      height: 2px;
-      background-color: var(--medium-gray);
-      transition: var(--transition);
-    }
-    
-    .menu-icon::before {
-      transform: translateY(-8px);
-    }
-    
-    .menu-icon::after {
-      transform: translateY(8px);
-    }
-    
-    /* Mobile Menu */
-    .mobile-menu {
-      display: none;
-      background-color: var(--mint-green);
-      padding: 1rem;
-      position: absolute;
-      top: 70px;
-      left: 0;
-      right: 0;
-      z-index: 99;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    
-    .mobile-menu.active {
-      display: block;
-    }
-    
-    .mobile-nav-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    
-    .mobile-nav-link {
-      display: block;
-      padding: 0.5rem 0;
-      color: var(--medium-gray);
-      font-weight: 500;
-    }
-    
-    .mobile-nav-link.highligh{
-      color: var(--medium-gray);
-      font-weight: 600;
-    }
-  
-  h3 {
-    background-color: var(--mint-green);
-    border-top-left-radius: var(--border-radius);
-    border-top-right-radius: var(--border-radius);
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    margin: 0;
-  }
-    
-  
-  form{
-    width: 500px;
-    text-align: center;
-    margin: 0 auto;
-    background-color: var(--background-color);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-  }
-  
-  input{
-    display: block;
-    margin: 10px auto;
-    border-radius: var(--border-radius);
-    border: var(--border-color);
-    box-shadow: var(--box-shadow);
-    padding: 4px;
-    width: 250px;
-  }
-
-  .envi{
-    display: inline-block;
-  padding: 12px 24px;
-  border-radius: var(--border-radius);
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-  border: none;
-  font-size: 1rem;
-   background-color: #98D8C8;
-  }
-  
-  .envi:hover{
-    background-color: #6aad9c;
-  }
-
- /* Footer */
-.chuteira {
-  padding: 4rem 0 2rem;
-  background-color: #f1f1f1;
-  --primary: #98D8C8;
-  --primary-dark: #98D8C8;
+  --primary: #2663ff;
+  --primary-dark: #1a47b8;
   --bg: #f7f8fa;
   --white: #fff;
   --gray: #e0e3ea;
   --text: #2d2d2d;
   --radius: 12px;
-  --shadow: 0 4px 16px rgba(38,99,255,0.07);
+  --shadow: 0 4px 16px rgba(38, 99, 255, 0.07);
 }
-*{ box-sizing: border-box; margin: 0; padding: 0;}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background: var(--bg);
   font-family: 'Montserrat', Arial, sans-serif;
@@ -411,6 +23,7 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 .container {
   background: var(--white);
   border-radius: var(--radius);
@@ -421,12 +34,21 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: fadeIn 0.8s cubic-bezier(0.4,0,0.2,1);
+  animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(40px);}
-  to { opacity: 1; transform: none;}
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
+
 .logo {
   font-weight: 700;
   color: var(--primary);
@@ -434,21 +56,27 @@ body {
   letter-spacing: 1px;
   margin-bottom: 1.5rem;
 }
+
 form {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
+
 label {
   color: var(--text);
   font-size: 0.98rem;
   margin-bottom: 0.4rem;
   font-weight: 500;
 }
+
 .input-group {
   margin-bottom: 1.1rem;
 }
-input[type="text"],input[type="email"],input[type="password"] {
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
   width: 100%;
   padding: 0.7rem 1rem;
   border: 1.3px solid var(--gray);
@@ -459,10 +87,12 @@ input[type="text"],input[type="email"],input[type="password"] {
   outline: none;
   margin-bottom: 0.25rem;
 }
+
 input:focus {
   border-color: var(--primary);
   background: #f0f4ff;
 }
+
 .btn {
   width: 100%;
   background: var(--primary);
@@ -477,7 +107,11 @@ input:focus {
   transition: background 0.18s;
   box-shadow: 0 2px 8px rgba(38, 99, 255, 0.08);
 }
-.btn:hover { background: var(--primary-dark);}
+
+.btn:hover {
+  background: var(--primary-dark);
+}
+
 .link {
   color: var(--primary);
   text-decoration: none;
@@ -485,7 +119,11 @@ input:focus {
   font-weight: 500;
   transition: color 0.13s;
 }
-.link:hover { color: var(--primary-dark);}
+
+.link:hover {
+  color: var(--primary-dark);
+}
+
 .msg {
   color: #e74c3c;
   font-size: 0.97rem;
@@ -493,6 +131,7 @@ input:focus {
   min-height: 1.2em;
   text-align: center;
 }
+
 @media (max-width: 500px) {
   .container {
     padding: 2rem 1rem;
@@ -501,5 +140,8 @@ input:focus {
     min-height: 100vh;
     justify-content: center;
   }
-  .logo { font-size: 1.6rem;}
+
+  .logo {
+    font-size: 1.6rem;
+  }
 }
